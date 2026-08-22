@@ -3,20 +3,51 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="IIIT RK Valley campus and indoor room navigation prototype">
 <title>IIIT RK Valley | Campus Navigation</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header><div class="badge">📍 CAMPUS NAVIGATION SYSTEM</div><h1>IIIT RK Valley</h1><p>Idupulapaya, Kadapa District, Andhra Pradesh</p><p class="sub">Find your way around campus</p></header>
+<header>
+  <div class="badge">📍 CAMPUS NAVIGATION SYSTEM</div>
+  <h1>IIIT RK Valley</h1>
+  <p>Idupulapaya, Kadapa District, Andhra Pradesh</p>
+  <p class="sub">Campus + Indoor Room Navigation Prototype</p>
+</header>
 <main>
-<section class="card"><h2>🧭 Get Directions</h2><p class="hint">Choose where you are and where you want to go.</p>
-<label for="current">Current Location</label><select id="current"><option value="">Select current location</option></select>
-<label for="destination">Destination</label><select id="destination"><option value="">Select destination</option></select>
-<button id="navigate">🚶 Navigate with Google Maps</button><p id="message"></p></section>
-<section class="card"><h2>📍 Campus Locations</h2><div id="locations" class="grid"></div></section>
-<section class="card"><h2>📱 Scan once, navigate anywhere</h2><p>This website is designed to use one QR code for the whole campus. Scan the QR code, select your current location and destination, then continue in Google Maps.</p></section>
+  <section class="notice"><strong>Prototype layout:</strong> The room/floor data below is a rough planning model for the project, not the official IIIT RK Valley building plan. We can replace it with real room data later.</section>
+  <section class="card">
+    <h2>🧭 Find a Room</h2>
+    <p class="hint">Choose your current location and destination. Same-building trips use our indoor route prototype; different-building trips can continue in Google Maps.</p>
+    <div class="route-grid">
+      <div class="route-side">
+        <h3>📍 I am here</h3>
+        <label for="currentBuilding">Building</label><select id="currentBuilding"></select>
+        <label for="currentFloor">Floor</label><select id="currentFloor"></select>
+        <label for="currentRoom">Room / Facility</label><select id="currentRoom"></select>
+      </div>
+      <div class="route-side destination-side">
+        <h3>🎯 I want to go to</h3>
+        <label for="destinationBuilding">Building</label><select id="destinationBuilding"></select>
+        <label for="destinationFloor">Floor</label><select id="destinationFloor"></select>
+        <label for="destinationRoom">Room / Facility</label><select id="destinationRoom"></select>
+      </div>
+    </div>
+    <button id="navigate">🧭 Find Route</button>
+    <p id="message"></p>
+  </section>
+  <section id="routeResult" class="card result-card" hidden>
+    <div class="result-heading">
+      <div><h2>🗺️ Route</h2><p id="routeSummary" class="hint"></p></div>
+      <button id="googleMaps" class="secondary-button" hidden>🌍 Continue in Google Maps</button>
+    </div>
+    <div id="steps" class="steps"></div>
+    <div id="floorPreview" class="floor-preview"></div>
+  </section>
+  <section class="card"><h2>🏫 Prototype Campus Locations</h2><div id="locations" class="grid"></div></section>
+  <section class="card"><h2>📱 One QR for the whole campus</h2><p>Students scan one QR code, choose their current building/floor/room and destination, and then follow the indoor route or continue with Google Maps for another building.</p></section>
 </main>
-<footer>IIIT RK Valley Campus Navigation • Student Project</footer>
+<footer>IIIT RK Valley Campus Navigation • Student Project • Prototype</footer>
 <script src="script.js"></script>
 </body>
 </html>
