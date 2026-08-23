@@ -12,23 +12,23 @@
   <div class="badge">📍 CAMPUS NAVIGATION SYSTEM</div>
   <h1>IIIT RK Valley</h1>
   <p>Idupulapaya, Kadapa District, Andhra Pradesh</p>
-  <p class="sub">Campus + Indoor Room Navigation Prototype</p>
+  <p class="sub">Outdoor + Indoor Campus Navigation Prototype</p>
 </header>
 <main>
-  <section class="notice"><strong>Prototype layout:</strong> The room/floor data below is a rough planning model for the project, not the official IIIT RK Valley building plan. We can replace it with real room data later.</section>
+  <section class="notice"><strong>Prototype layout:</strong> Indoor room/floor data is a rough planning model, not the official IIIT RK Valley floor plan. Outdoor building-to-building travel uses Google Maps; indoor travel uses our prototype floor maps.</section>
   <section class="card">
     <h2>🧭 Find a Room or Facility</h2>
-    <p class="hint">Choose your current location and destination. Same-building trips use our indoor route prototype; different-building trips can continue in Google Maps.</p>
+    <p class="hint">Choose your current location and destination. Same-building trips use the indoor prototype; trips between buildings use Google Maps for the outdoor section.</p>
     <div class="route-grid">
       <div class="route-side">
         <h3>📍 I am here</h3>
-        <label for="currentBuilding">Building</label><select id="currentBuilding"></select>
+        <label for="currentBuilding">Building / Block</label><select id="currentBuilding"></select>
         <label for="currentFloor">Floor</label><select id="currentFloor"></select>
         <label for="currentRoom">Room / Facility</label><select id="currentRoom"></select>
       </div>
       <div class="route-side destination-side">
         <h3>🎯 I want to go to</h3>
-        <label for="destinationBuilding">Building</label><select id="destinationBuilding"></select>
+        <label for="destinationBuilding">Building / Block</label><select id="destinationBuilding"></select>
         <label for="destinationFloor">Floor</label><select id="destinationFloor"></select>
         <label for="destinationRoom">Room / Facility</label><select id="destinationRoom"></select>
       </div>
@@ -39,36 +39,35 @@
   <section id="routeResult" class="card result-card" hidden>
     <div class="result-heading">
       <div><h2>🗺️ Route</h2><p id="routeSummary" class="hint"></p></div>
-      <button id="googleMaps" class="secondary-button" hidden>🌍 Continue in Google Maps</button>
+      <button id="googleMaps" class="secondary-button" hidden>🌍 Open Outdoor Route in Google Maps</button>
     </div>
     <div id="steps" class="steps"></div>
     <div id="floorPreview" class="floor-preview"></div>
   </section>
   <section class="card">
-    <h2>🎓 Departments</h2>
-    <p class="hint">Engineering and academic departments included in the prototype. Their exact room/block assignments are intentionally treated as provisional until official campus data is available.</p>
+    <h2>🏢 Campus Block Structure</h2>
+    <p class="hint">For this prototype, the major engineering departments are modeled as separate blocks. Smaller academic departments are modeled inside the Academic Blocks.</p>
     <div class="grid departments-grid">
-      <div class="place"><strong>💻 CSE</strong><span>Computer Science & Engineering</span></div>
-      <div class="place"><strong>📡 ECE</strong><span>Electronics & Communication Engineering</span></div>
-      <div class="place"><strong>⚡ EEE / EE</strong><span>Electrical & Electronics / Electrical Engineering</span></div>
-      <div class="place"><strong>🏗️ Civil Engineering</strong><span>Civil Engineering</span></div>
-      <div class="place"><strong>⚙️ Mechanical Engineering</strong><span>Mechanical Engineering</span></div>
-      <div class="place"><strong>🔩 MME</strong><span>Materials Science & Metallurgical Engineering</span></div>
-      <div class="place"><strong>🧪 Chemical Engineering</strong><span>Chemical Engineering</span></div>
-      <div class="place"><strong>🧬 Biotechnology</strong><span>Biotechnology</span></div>
-      <div class="place"><strong>📐 Mathematics</strong><span>Mathematics</span></div>
-      <div class="place"><strong>⚛️ Physics</strong><span>Physics</span></div>
-      <div class="place"><strong>🧪 Chemistry</strong><span>Chemistry</span></div>
-      <div class="place"><strong>📚 English</strong><span>English / Humanities</span></div>
-      <div class="place"><strong>🌐 Telugu</strong><span>Telugu / Humanities</span></div>
-      <div class="place"><strong>💼 Management</strong><span>Management</span></div>
-      <div class="place"><strong>💰 Economics</strong><span>Economics</span></div>
-      <div class="place"><strong>🧬 Bioscience</strong><span>Bioscience</span></div>
-      <div class="place"><strong>🏃 Physical Education</strong><span>Physical Education</span></div>
+      <div class="place"><strong>💻 CSE Block</strong><span>Separate Computer Science & Engineering block</span></div>
+      <div class="place"><strong>📡 ECE Block</strong><span>Separate Electronics & Communication Engineering block</span></div>
+      <div class="place"><strong>⚡ EEE Block</strong><span>Separate Electrical & Electronics Engineering block</span></div>
+      <div class="place"><strong>🏗️ Civil Block</strong><span>Separate Civil Engineering block</span></div>
+      <div class="place"><strong>🔩 MME Block</strong><span>Separate Materials Science & Metallurgical Engineering block</span></div>
+      <div class="place"><strong>⚙️ ME Block</strong><span>Separate Mechanical Engineering block</span></div>
+      <div class="place"><strong>🏢 AB-1 / AB-2</strong><span>Academic blocks containing smaller departments and academic rooms</span></div>
+      <div class="place"><strong>📐 Mathematics</strong><span>Prototype location: Academic Block</span></div>
+      <div class="place"><strong>⚛️ Physics</strong><span>Prototype location: Academic Block</span></div>
+      <div class="place"><strong>🧪 Chemistry</strong><span>Prototype location: Academic Block</span></div>
+      <div class="place"><strong>📚 English</strong><span>Prototype location: Academic Block</span></div>
+      <div class="place"><strong>🌐 Telugu</strong><span>Prototype location: Academic Block</span></div>
+      <div class="place"><strong>💼 Management</strong><span>Prototype location: Academic Block</span></div>
+      <div class="place"><strong>📖 Library Science</strong><span>Prototype location: Academic Block</span></div>
+      <div class="place"><strong>🏃 Physical Education</strong><span>Prototype location: Academic Block</span></div>
     </div>
   </section>
+  <section class="card"><h2>🏟️ Student Activity Centre</h2><div class="grid"><div class="place"><strong>🏋️ Gym</strong><span>Indoor fitness facility</span></div><div class="place"><strong>🎾 Tennis Court</strong><span>Outdoor sports facility</span></div><div class="place"><strong>🏀 Basketball Court</strong><span>Outdoor sports facility</span></div><div class="place"><strong>🏸 Badminton</strong><span>Indoor sports facility</span></div><div class="place"><strong>🏓 Table Tennis</strong><span>Indoor sports facility</span></div><div class="place"><strong>🏐 Volleyball Court</strong><span>Outdoor sports facility</span></div><div class="place"><strong>♟️ Indoor Games</strong><span>Chess and other indoor activities</span></div><div class="place"><strong>👥 Student Clubs Room</strong><span>Student activity space</span></div></div></section>
   <section class="card"><h2>🏫 Prototype Campus Locations</h2><div id="locations" class="grid"></div></section>
-  <section class="card"><h2>📱 One QR for the whole campus</h2><p>Students scan one QR code, choose their current building/floor/room and destination, and then follow the indoor route or continue with Google Maps for another building.</p></section>
+  <section class="card"><h2>📱 One QR for the whole campus</h2><p>Students scan one QR code, choose their current building/floor/room and destination, and follow the indoor prototype or continue with Google Maps for the outdoor section.</p></section>
 </main>
 <footer>IIIT RK Valley Campus Navigation • Student Project • Prototype</footer>
 <script src="script.js"></script>
