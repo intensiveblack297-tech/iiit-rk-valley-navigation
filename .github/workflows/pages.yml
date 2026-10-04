@@ -1,5 +1,9 @@
 name: Deploy Campus Navigation to GitHub Pages
 
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
 on:
   push:
     branches:
