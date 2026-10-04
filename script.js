@@ -14,9 +14,9 @@ const blocks = [
   {name:'BH-2',icon:'🏠',query:'Boys Hostel 2, IIIT RGUKT RK Valley',type:'hostel'},
   {name:'GH-1',icon:'🏠',query:'Girls Hostel 1, IIIT RGUKT RK Valley',type:'hostel'},
   {name:'SAC',icon:'🏟️',query:'Student Activity Centre, IIIT RGUKT RK Valley',type:'sports'},
-  {name:'Campus Hospital',icon:'🏥',query:'Hospital, IIIT RGUKT RK Valley, Idupulapaya',type:'facility'},
-  {name:'Campus Bank',icon:'🏦',query:'Bank, IIIT RGUKT RK Valley, Idupulapaya',type:'facility'},
-  {name:'ATM',icon:'🏧',query:'ATM, IIIT RGUKT RK Valley, Idupulapaya',type:'facility'}
+  {name:'Campus Hospital',icon:'🏥',query:'Campus Hospital, IIIT RK Valley, Idupulapaya, Andhra Pradesh',type:'facility'},
+  {name:'SBI Bank — Idupulapaya',icon:'🏦',query:'State Bank of India, Idupulapaya-Kadapa, AP IIIT Campus, RK Valley, Idupulapaya',type:'facility'},
+  {name:'SBI ATM — IIIT Campus',icon:'🏧',query:'State Bank of India ATM, AP IIIT Campus, RK Valley, Idupulapaya',type:'facility'}
 ];
 
 const academicFloors=[['101','102','103','104','105 — Mathematics','106 — Physics','107 — Chemistry','108 — English','109 — Telugu','110 — Academic Office'],['201','202','203','204','205 — Mathematics','206 — Physics','207 — Chemistry','208 — English','209 — Telugu','210 — Faculty / Staff Room'],['301','302','303','304','305 — Management','306 — Library Science','307 — Physical Education','308 — Faculty Room','309 — Seminar Room','310 — Common Area']];
@@ -45,8 +45,15 @@ currentFloor.addEventListener('change',()=>fillRooms(currentRoom,+currentBuildin
 destinationFloor.addEventListener('change',()=>fillRooms(destinationRoom,+destinationBuilding.value,+destinationFloor.value));
 blocks.forEach(b=>{const d=document.createElement('div');d.className='place';let description;if(b.type==='hostel')description='3 floors • residential rooms • warden/common/study spaces • no labs';else if(b.type==='sports')description='Student Activity Centre • gym • tennis • basketball • badminton • indoor games';else if(b.type==='facility')description='Essential campus support facility • modeled at ground level';else if(b.type==='department')description=`Separate department block • ${b.department} • classrooms • labs • faculty/research spaces`;else description=`Academic block • smaller departments: ${b.smallDepartments.join(', ')}`;d.innerHTML=`<strong>${b.icon} ${b.name}</strong><span>${description}</span>`;locations.appendChild(d);});
 
-const essentialCopy={'Campus Hospital':['🏥','Health & first-aid support','Campus healthcare facility'],'Campus Bank':['🏦','Banking services','Student banking / essential transactions'],'ATM':['🏧','24×7 cash access','ATM / quick banking access']};
-blocks.filter(b=>essentialCopy[b.name]).forEach(b=>{const d=document.createElement('div');d.className='facility';const c=essentialCopy[b.name];d.innerHTML=`<div class="facility-icon">${c[0]}</div><strong>${b.name}</strong><span>${c[1]}</span><span>${c[2]}</span><button class="facility-action" type="button">Set as destination →</button>`;d.querySelector('button').addEventListener('click',()=>{const idx=blocks.indexOf(b);destinationBuilding.value=String(idx);fillFloors(destinationFloor,idx);destinationFloor.value='0';fillRooms(destinationRoom,idx,0);document.getElementById('navigate').scrollIntoView({behavior:'smooth',block:'center'});message.textContent=`${b.name} selected as your destination.`;});essentialLocations.appendChild(d);});
+const essentialCopy={
+  'Campus Hospital':['🏥','Campus healthcare facility','Hospital & medical support'],
+  'SBI Bank — Idupulapaya':['🏦','State Bank of India branch','AP IIIT Campus • Idupulapaya-Kadapa'],
+  'SBI ATM — IIIT Campus':['🏧','State Bank of India ATM','AP IIIT Campus • Idupulapaya']
+};
+blocks.filter(b=>essentialCopy[b.name]).forEach(b=>{const d=document.createElement('div');d.className='facility';const c=essentialCopy[b.name];d.innerHTML=`<div class="facility-icon">${c[0]}</div><strong>${b.name}</strong><span>${c[1]}</span><span>${c[2]}</span><div class="facility-actions"><button class="facility-action" type="button">Set as destination →</button><button class="facility-map-action" type="button">Open in Google Maps ↗</button></div>`;d.querySelector('.facility-action').addEventListener('click',()=>{const idx=blocks.indexOf(b);destinationBuilding.value=String(idx);fillFloors(destinationFloor,idx);destinationFloor.value='0';fillRooms(destinationRoom,idx,0);document.getElementById('navigate').scrollIntoView({behavior:'smooth',block:'center'});message.textContent=`${b.name} selected as your destination.`;});
+  d.querySelector('.facility-map-action').addEventListener('click',()=>window.open(mapsSearchUrl(b.query),'_blank','noopener,noreferrer'));
+  essentialLocations.appendChild(d);
+});
 function nodeRoom(i){return `r${i}`;}function nodeCorridor(i){return `c${i}`;}
 function buildGraph(count){const g={};for(let i=0;i<count;i++){const r=nodeRoom(i),c=nodeCorridor(i%5);g[r]??=[];g[c]??=[];g[r].push({to:c,cost:1});g[c].push({to:r,cost:1});}for(let i=0;i<4;i++){g[nodeCorridor(i)].push({to:nodeCorridor(i+1),cost:1});g[nodeCorridor(i+1)].push({to:nodeCorridor(i),cost:1});}return g;}
 function aStar(g,start,goal){const open=[start],came={},cost={[start]:0},score={[start]:1};while(open.length){open.sort((a,b)=>score[a]-score[b]);const cur=open.shift();if(cur===goal){const path=[cur];while(came[path[0]])path.unshift(came[path[0]]);return path;}for(const e of g[cur]||[]){const n=(cost[cur]??Infinity)+e.cost;if(n<(cost[e.to]??Infinity)){came[e.to]=cur;cost[e.to]=n;score[e.to]=n+(e.to===goal?0:1);if(!open.includes(e.to))open.push(e.to);}}}return [];}
