@@ -43,7 +43,18 @@ currentBuilding.addEventListener('change',()=>{fillFloors(currentFloor,+currentB
 destinationBuilding.addEventListener('change',()=>{fillFloors(destinationFloor,+destinationBuilding.value);fillRooms(destinationRoom,+destinationBuilding.value,+destinationFloor.value);});
 currentFloor.addEventListener('change',()=>fillRooms(currentRoom,+currentBuilding.value,+currentFloor.value));
 destinationFloor.addEventListener('change',()=>fillRooms(destinationRoom,+destinationBuilding.value,+destinationFloor.value));
-blocks.forEach(b=>{const d=document.createElement('div');d.className='place';let description;if(b.type==='hostel')description='3 floors • residential rooms • warden/common/study spaces • no labs';else if(b.type==='sports')description='Student Activity Centre • gym • tennis • basketball • badminton • indoor games';else if(b.type==='facility')description='Essential campus support facility • modeled at ground level';else if(b.type==='department')description=`Separate department block • ${b.department} • classrooms • labs • faculty/research spaces`;else description=`Academic block • smaller departments: ${b.smallDepartments.join(', ')}`;d.innerHTML=`<strong>${b.icon} ${b.name}</strong><span>${description}</span>`;locations.appendChild(d);});
+blocks.forEach(b=>{const d=document.createElement('div');d.className='place';let description;if(b.type==='hostel')description='3 floors • residential rooms • warden/common/study spaces • no labs';else if(b.type==='sports')description='Student Activity Centre • gym • tennis • basketball • badminton • indoor games';else if(b.type==='facility')description='Essential campus support facility • modeled at ground level';else if(b.type==='department')description=`Separate department block • ${b.department} • classrooms • labs • faculty/research spaces`;else description=`Academic block • smaller departments: ${b.smallDepartments.join(', ')}`;d.innerHTML=`<strong>${b.icon} ${b.name}</strong><span>${description}</span><div class="place-actions"><button class="place-destination" type="button">Set as destination →</button><button class="place-map" type="button">Open in Google Maps ↗</button></div>`;
+  d.querySelector('.place-destination').addEventListener('click',()=>{
+    const idx=blocks.indexOf(b);
+    destinationBuilding.value=String(idx);
+    fillFloors(destinationFloor,idx);
+    destinationFloor.value='0';
+    fillRooms(destinationRoom,idx,0);
+    document.getElementById('navigate').scrollIntoView({behavior:'smooth',block:'center'});
+    message.textContent=`${b.name} selected as your destination.`;
+  });
+  d.querySelector('.place-map').addEventListener('click',()=>window.open(mapsSearchUrl(b.query),'_blank','noopener,noreferrer'));
+  locations.appendChild(d);});
 
 const essentialCopy={
   'Campus Hospital':['🏥','Campus healthcare facility','Hospital & medical support'],
