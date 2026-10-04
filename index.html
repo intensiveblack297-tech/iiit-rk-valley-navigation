@@ -8,10 +8,17 @@
 <link rel="stylesheet" href="style.css"><link rel="icon" href="navigo-mark.svg" type="image/svg+xml">
 </head>
 <body>
-<header class="hero"><div class="hero-inner"><div class="brand"><img class="brand-mark" src="navigo-mark.svg" alt="NAVIGO logo mark"><div class="brand-text"><div class="brand-name">NAVIGO</div><div class="brand-tagline">Scan. Navigate. Arrive.</div></div></div><div class="hero-copy"><span class="hero-pill">IIIT RK VALLEY • CAMPUS GUIDE</span><h1>Your way around campus.</h1><p>One simple navigation system for academic blocks, hostels, departments, sports and essential student facilities.</p></div><div class="hero-campus"><div class="campus-orb">⌖</div><strong>IIIT RK Valley</strong><span>Idupulapaya • Kadapa • Andhra Pradesh</span></div></div></header>
+<header class="hero"><div class="hero-inner">
+  <div class="brand"><img class="brand-mark" src="navigo-mark.svg" alt="NAVIGO logo mark"><div class="brand-text"><div class="brand-name">NAVIGO</div><div class="brand-tagline">Scan. Navigate. Arrive.</div></div></div>
+  <div class="hero-layout">
+    <div class="hero-copy"><span class="hero-pill">DESIGN THINKING PROJECT • IIIT RK VALLEY</span><h1>Your campus.<br><em>One clear route.</em></h1><p>Find academic blocks, departments, hostels, sports and essential facilities without asking for directions.</p><div class="hero-actions"><a href="#navigation" class="hero-cta">Start navigating <span>→</span></a><a href="#qr-access" class="hero-link">Scan NAVIGO QR</a></div><div class="hero-steps"><div><b>01</b><span>Scan</span></div><div><b>02</b><span>Navigate</span></div><div><b>03</b><span>Arrive</span></div></div></div>
+    <div class="hero-visual"><img src="navigo-campus-visual.svg" alt="Stylized NAVIGO campus navigation scene"><div class="visual-caption"><span>Campus guide</span><strong>Indoor + outdoor navigation</strong></div></div>
+  </div>
+  <div class="hero-campus"><div class="campus-orb">⌖</div><strong>IIIT RK Valley</strong><span>Idupulapaya • Kadapa • Andhra Pradesh</span></div>
+</div></header>
 <main>
   <section class="notice"><div class="notice-icon">i</div><div><strong>Prototype navigation model</strong><span>Indoor floor layouts are conceptual planning maps, not official floor plans. Outdoor building-to-building travel is handed to Google Maps.</span></div></section>
-  <section class="card">
+  <section id="navigation" class="card">
     <div class="section-kicker">NAVIGATION</div><h2>Where do you want to go?</h2>
     <p class="hint">Choose your current location and destination. Same-building trips use the indoor prototype; trips between buildings use Google Maps for the outdoor section.</p>
     <div class="route-grid">
@@ -62,7 +69,7 @@
   </section>
   <section class="card"><div class="section-kicker">SPORTS & ACTIVITIES</div><h2>Student Activity Centre</h2><div class="grid"><div class="place"><strong>🏋️ Gym</strong><span>Indoor fitness facility</span></div><div class="place"><strong>🎾 Tennis Court</strong><span>Outdoor sports facility</span></div><div class="place"><strong>🏀 Basketball Court</strong><span>Outdoor sports facility</span></div><div class="place"><strong>🏸 Badminton</strong><span>Indoor sports facility</span></div><div class="place"><strong>🏓 Table Tennis</strong><span>Indoor sports facility</span></div><div class="place"><strong>🏐 Volleyball Court</strong><span>Outdoor sports facility</span></div><div class="place"><strong>♟️ Indoor Games</strong><span>Chess and other indoor activities</span></div><div class="place"><strong>👥 Student Clubs Room</strong><span>Student activity space</span></div></div></section>
   <section class="card"><div class="section-kicker">ESSENTIAL FACILITIES</div><h2>Hospital, Bank & ATM</h2><p class="hint">These are real campus facilities. Select one to make it your destination, or open its verified Google Maps place.</p><div id="essentialLocations" class="facility-grid"></div><p class="facility-helper">Choose a facility below to make it your destination instantly.</p></section><section class="card"><div class="section-kicker">LOCATIONS</div><h2>All prototype locations</h2><div id="locations" class="grid"></div></section>
-  <section class="card qr-card"><div class="qr-icon">▦</div><div><div class="section-kicker">ONE QR</div><h2>One scan. Whole campus.</h2><p>Students can open NAVIGO from a single QR code, choose their current location and destination, then follow the indoor prototype or continue with Google Maps outdoors.</p></div></section>
+  <section id="qr-access" class="qr-card card"><div class="qr-copy"><div class="section-kicker">ONE QR • FINAL ACCESS</div><h2>Scan. Navigate. Arrive.</h2><p>Keep this QR at the campus entrance, notice board or presentation poster. One scan opens the live NAVIGO campus guide.</p><div class="qr-points"><span>✓ No separate QR for each block</span><span>✓ Choose current location + destination</span><span>✓ Indoor prototype + Google Maps outdoors</span></div></div><div class="qr-panel"><div class="qr-frame"><img class="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=420x420&data=https%3A%2F%2Fintensiveblack297-tech.github.io%2Fiiit-rk-valley-navigation%2F" alt="QR code opening the NAVIGO campus navigation website"></div><span>SCAN FOR CAMPUS NAVIGATION</span></div></section>
 </main>
 <footer><strong>NAVIGO</strong> • IIIT RK Valley Campus Navigation <span>•</span> Student Project • Prototype</footer>
 <script src="script.js"></script>
