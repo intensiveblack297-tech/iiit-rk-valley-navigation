@@ -1,14 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 588 213" role="img" aria-labelledby="title desc">
-<title>NAVIGO — Scan. Navigate. Arrive.</title>
-<desc>NAVIGO campus navigation logo with a location pin containing the letter N.</desc>
-<rect width="588" height="213" fill="#fff"/>
-<g transform="translate(4 8)">
-  <path d="M58 0C26 0 0 26 0 58c0 46 58 91 58 91s58-45 58-91C116 26 90 0 58 0Z" fill="#073844"/>
-  <path d="M58 11C33 11 13 31 13 56c0 26 24 50 45 68 21-18 45-42 45-68 0-25-20-45-45-45Z" fill="#fff"/>
-  <path d="M34 91V43h13l21 28V43h13v48H68L47 63v28Z" fill="#073844"/>
-  <path d="M65 95l-2-30 19 24-17 13Z" fill="#8bcf62"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 588 213">
+<rect width="588" height="213" rx="2" fill="#ffffff"/>
+<g transform="translate(3,6)">
+<path d="M58 0C26 0 0 26 0 58c0 45 31 76 58 96 27-20 58-51 58-96C116 26 90 0 58 0Z" fill="#073844"/>
+<path d="M58 11C33 11 13 31 13 56c0 27 20 51 45 71 25-20 45-44 45-71 0-25-20-45-45-45Z" fill="#fff"/>
+<path d="M34 93V43h13l21 28V43h13v50H68L47 64v29Z" fill="#073844"/>
+<path d="M65 96 62 67 82 91 65 106Z" fill="#86c65b"/>
 </g>
-<text x="151" y="108" font-family="Arial, Helvetica, sans-serif" font-size="78" font-weight="900" letter-spacing="-3" fill="#062f3b">NAVIGO</text>
-<path d="M278 91l17-32 18 32-18-10Z" fill="#8bcf62"/>
-<text x="160" y="151" font-family="Arial, Helvetica, sans-serif" font-size="20" letter-spacing="5" fill="#435862">S c a n .   N a v i g a t e .   A r r i v e .</text>
+<text x="151" y="108" font-family="Arial,Helvetica,sans-serif" font-size="77" font-weight="900" letter-spacing="-3" fill="#062f3b">NAVIGO</text>
+<path d="M275 91 292 59 310 91 292 81Z" fill="#86c65b"/>
+<text x="160" y="151" font-family="Arial,Helvetica,sans-serif" font-size="20" letter-spacing="5" fill="#4b5d64">S c a n .   N a v i g a t e .   A r r i v e .</text>
 </svg>
