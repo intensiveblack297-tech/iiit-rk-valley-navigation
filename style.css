@@ -84,3 +84,9 @@ footer{padding-top:8px}
  .qr-card{padding:24px 18px}
  .qr-copy h2{font-size:27px}
 }
+
+/* Campus Temple: single ground-floor destination */
+.temple-map{min-height:300px;display:flex;flex-direction:column;justify-content:center;align-items:center;position:relative}
+.temple-only{width:min(520px,88%);min-height:150px;border:2px solid var(--green);border-radius:24px;background:linear-gradient(145deg,#f7fbf3,#edf5e8);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;box-shadow:var(--shadow);font-size:44px}
+.temple-only strong{font-size:22px;letter-spacing:1px;color:var(--primary-dark)}
+.temple-only span{font-size:13px;color:var(--muted);font-weight:700}
