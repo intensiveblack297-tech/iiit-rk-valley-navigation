@@ -90,3 +90,10 @@ footer{padding-top:8px}
 .temple-only{width:min(520px,88%);min-height:150px;border:2px solid var(--green);border-radius:24px;background:linear-gradient(145deg,#f7fbf3,#edf5e8);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;box-shadow:var(--shadow);font-size:44px}
 .temple-only strong{font-size:22px;letter-spacing:1px;color:var(--primary-dark)}
 .temple-only span{font-size:13px;color:var(--muted);font-weight:700}
+
+/* Campus Temple: destination only, with no rooms or internal facilities */
+.temple-card{display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;gap:16px;padding:22px;border:1px solid var(--border);border-radius:20px;background:linear-gradient(135deg,#f7fbf3,#fff);box-shadow:var(--shadow)}
+.temple-card-icon{width:58px;height:58px;border-radius:16px;display:grid;place-items:center;background:var(--mint);font-size:30px}
+.temple-card strong{display:block;color:var(--primary-dark);font-size:18px}
+.temple-card span{display:block;margin-top:4px;color:var(--muted);font-size:13px;font-weight:700}
+@media(max-width:800px){.temple-card{grid-template-columns:58px 1fr}.temple-card .place-destination,.temple-card .place-map{grid-column:1/-1;width:100%}}
