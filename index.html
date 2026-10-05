@@ -26,13 +26,13 @@
         <h3>📍 I am here</h3>
         <label for="currentBuilding">Building / Block</label><select id="currentBuilding"></select>
         <label for="currentFloor">Floor</label><select id="currentFloor"></select>
-        <label for="currentRoom">Room / Location</label><select id="currentRoom"></select>
+        <div id="currentRoomField"><label for="currentRoom">Room / Location</label><select id="currentRoom"></select></div>
       </div>
       <div class="route-side destination-side">
         <h3>🎯 I want to go to</h3>
         <label for="destinationBuilding">Building / Block</label><select id="destinationBuilding"></select>
         <label for="destinationFloor">Floor</label><select id="destinationFloor"></select>
-        <label for="destinationRoom">Room / Location</label><select id="destinationRoom"></select>
+        <div id="destinationRoomField"><label for="destinationRoom">Room / Location</label><select id="destinationRoom"></select></div>
       </div>
     </div>
     <button id="navigate"><span>Find route</span><span class="button-arrow">→</span></button>
@@ -68,7 +68,8 @@
     </div>
   </section>
   <section class="card"><div class="section-kicker">SPORTS & ACTIVITIES</div><h2>Student Activity Centre</h2><div class="grid"><div class="place"><strong>🏋️ Gym</strong><span>Indoor fitness facility</span></div><div class="place"><strong>🎾 Tennis Court</strong><span>Outdoor sports facility</span></div><div class="place"><strong>🏀 Basketball Court</strong><span>Outdoor sports facility</span></div><div class="place"><strong>🏸 Badminton</strong><span>Indoor sports facility</span></div><div class="place"><strong>🏓 Table Tennis</strong><span>Indoor sports facility</span></div><div class="place"><strong>🏐 Volleyball Court</strong><span>Outdoor sports facility</span></div><div class="place"><strong>♟️ Indoor Games</strong><span>Chess and other indoor activities</span></div><div class="place"><strong>👥 Student Clubs Room</strong><span>Student activity space</span></div></div></section>
-  <section class="card"><div class="section-kicker">ESSENTIAL FACILITIES</div><h2>Hospital, Bank, ATM & Temple</h2><p class="hint">These are important campus facilities. Select one to make it your destination, or open its Google Maps place.</p><div id="essentialLocations" class="facility-grid"></div><p class="facility-helper">Choose a facility below to make it your destination instantly.</p></section><section class="card"><div class="section-kicker">LOCATIONS</div><h2>All prototype locations</h2><div id="locations" class="grid"></div></section>
+  <section class="card"><div class="section-kicker">ESSENTIAL FACILITIES</div><h2>Hospital, Bank & ATM</h2><p class="hint">These are campus support facilities. Select one to make it your destination, or open its Google Maps place.</p><div id="essentialLocations" class="facility-grid"></div><p class="facility-helper">Choose a facility below to make it your destination instantly.</p></section>
+  <section class="card temple-section"><div class="section-kicker">CAMPUS TEMPLE</div><h2>Campus Temple</h2><p class="hint">A single ground-floor temple destination. There are no rooms, reception areas, or other facilities inside this location.</p><div class="temple-card"><div class="temple-card-icon">🛕</div><div><strong>Campus Temple</strong><span>Ground Floor • Temple only</span></div><button id="templeDestination" class="place-destination" type="button">Set as destination →</button><button id="templeMap" class="place-map" type="button">Open in Google Maps ↗</button></div></section><section class="card"><div class="section-kicker">LOCATIONS</div><h2>All prototype locations</h2><div id="locations" class="grid"></div></section>
   <section id="qr-access" class="qr-card card"><div class="qr-copy"><div class="section-kicker">ONE QR • FINAL ACCESS</div><h2>Scan. Navigate. Arrive.</h2><p>Keep this QR at the campus entrance, notice board or presentation poster. One scan opens the live NAVIGO campus guide.</p><div class="qr-points"><span>✓ No separate QR for each block</span><span>✓ Choose current location + destination</span><span>✓ Indoor prototype + Google Maps outdoors</span></div></div><div class="qr-panel"><div class="qr-frame"><img class="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=420x420&data=https%3A%2F%2Fintensiveblack297-tech.github.io%2Fiiit-rk-valley-navigation%2F" alt="QR code opening the NAVIGO campus navigation website"></div><span>SCAN FOR CAMPUS NAVIGATION</span></div></section>
 </main>
 <footer><strong>NAVIGO</strong> • IIIT RK Valley Campus Navigation <span>•</span> Student Project • Prototype</footer>
