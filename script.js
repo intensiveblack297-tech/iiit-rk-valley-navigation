@@ -25,11 +25,12 @@ const departmentFloors=[['101 — Department Office','102 — Faculty Room','103
 const hostelFloors=[['101','102','103','104','105','106','107','108','109','110 — Warden Office'],['201','202','203','204','205','206','207','208','209','210 — Common Room'],['301','302','303','304','305','306','307','308','309','310 — Study Room']];
 const sacFloors=[['SAC Entrance','Gym','Indoor Gymnasium','Table Tennis','Badminton','Chess / Indoor Games','Student Clubs Room','Multipurpose Hall','Basketball Court','Tennis Court','Volleyball Court','Sports Office']];
 const facilityFloors=[['Main Entrance','Reception / Help Desk','Main Facility Area','Waiting Area','Information Desk','Common Area']];
+const templeFloors=[['Temple']];
 const floorNames=['Ground Floor','First Floor','Second Floor'];
 const currentBuilding=document.getElementById('currentBuilding'),currentFloor=document.getElementById('currentFloor'),currentRoom=document.getElementById('currentRoom');
 const destinationBuilding=document.getElementById('destinationBuilding'),destinationFloor=document.getElementById('destinationFloor'),destinationRoom=document.getElementById('destinationRoom');
 const message=document.getElementById('message'),routeResult=document.getElementById('routeResult'),routeSummary=document.getElementById('routeSummary'),steps=document.getElementById('steps'),floorPreview=document.getElementById('floorPreview'),googleMaps=document.getElementById('googleMaps'),locations=document.getElementById('locations'),essentialLocations=document.getElementById('essentialLocations');
-function floorsFor(b){if(blocks[b].type==='hostel')return hostelFloors;if(blocks[b].type==='sports')return sacFloors;if(blocks[b].type==='facility')return facilityFloors;if(blocks[b].type==='department')return departmentFloors;return academicFloors;}
+function floorsFor(b){if(blocks[b].name==='Campus Temple')return templeFloors;if(blocks[b].type==='hostel')return hostelFloors;if(blocks[b].type==='sports')return sacFloors;if(blocks[b].type==='facility')return facilityFloors;if(blocks[b].type==='department')return departmentFloors;return academicFloors;}
 function roomsFor(b,f){return floorsFor(b)[f]||[];}
 function floorLabel(b,f){if(blocks[b].type==='sports')return 'SAC / Ground Level';if(blocks[b].type==='facility')return 'Ground Level';return floorNames[f];}
 function fillBuildings(s){s.innerHTML=blocks.map((b,i)=>`<option value="${i}">${b.icon} ${b.name}</option>`).join('');}
@@ -61,7 +62,7 @@ const essentialCopy={
   'Campus Hospital':['🏥','Campus healthcare facility','Hospital & medical support'],
   'SBI Bank — Idupulapaya':['🏦','State Bank of India branch','AP IIIT Campus • Idupulapaya-Kadapa'],
   'SBI ATM — IIIT Campus':['🏧','State Bank of India ATM','AP IIIT Campus • Idupulapaya'],
-  'Campus Temple':['🛕','Campus temple / prayer space','IIIT RK Valley • Idupulapaya']
+  'Campus Temple':['🛕','Temple','IIIT RK Valley • Idupulapaya']
 };
 blocks.filter(b=>essentialCopy[b.name]).forEach(b=>{const d=document.createElement('div');d.className='facility';const c=essentialCopy[b.name];d.innerHTML=`<div class="facility-icon">${c[0]}</div><strong>${b.name}</strong><span>${c[1]}</span><span>${c[2]}</span><div class="facility-actions"><button class="facility-action" type="button">Set as destination →</button><button class="facility-map-action" type="button">Open in Google Maps ↗</button></div>`;d.querySelector('.facility-action').addEventListener('click',()=>{const idx=blocks.indexOf(b);destinationBuilding.value=String(idx);fillFloors(destinationFloor,idx);destinationFloor.value='0';fillRooms(destinationRoom,idx,0);document.getElementById('navigate').scrollIntoView({behavior:'smooth',block:'center'});message.textContent=`${b.name} selected as your destination.`;});
   d.querySelector('.facility-map-action').addEventListener('click',()=>window.open(mapsSearchUrl(b.query),'_blank','noopener,noreferrer'));
