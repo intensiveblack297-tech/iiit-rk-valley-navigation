@@ -16,7 +16,8 @@ const blocks = [
   {name:'SAC',icon:'🏟️',query:'Student Activity Centre, IIIT RGUKT RK Valley',type:'sports'},
   {name:'Campus Hospital',icon:'🏥',query:'Campus Hospital, IIIT RK Valley, Idupulapaya, Andhra Pradesh',type:'facility'},
   {name:'SBI Bank — Idupulapaya',icon:'🏦',query:'State Bank of India, Idupulapaya-Kadapa, AP IIIT Campus, RK Valley, Idupulapaya',type:'facility'},
-  {name:'SBI ATM — IIIT Campus',icon:'🏧',query:'State Bank of India ATM, AP IIIT Campus, RK Valley, Idupulapaya',type:'facility'}
+  {name:'SBI ATM — IIIT Campus',icon:'🏧',query:'State Bank of India ATM, AP IIIT Campus, RK Valley, Idupulapaya',type:'facility'},
+  {name:'Campus Temple',icon:'🛕',query:'Temple, IIIT RK Valley Campus, Idupulapaya, Andhra Pradesh',type:'facility'}
 ];
 
 const academicFloors=[['101','102','103','104','105 — Mathematics','106 — Physics','107 — Chemistry','108 — English','109 — Telugu','110 — Academic Office'],['201','202','203','204','205 — Mathematics','206 — Physics','207 — Chemistry','208 — English','209 — Telugu','210 — Faculty / Staff Room'],['301','302','303','304','305 — Management','306 — Library Science','307 — Physical Education','308 — Faculty Room','309 — Seminar Room','310 — Common Area']];
@@ -59,7 +60,8 @@ blocks.forEach(b=>{const d=document.createElement('div');d.className='place';let
 const essentialCopy={
   'Campus Hospital':['🏥','Campus healthcare facility','Hospital & medical support'],
   'SBI Bank — Idupulapaya':['🏦','State Bank of India branch','AP IIIT Campus • Idupulapaya-Kadapa'],
-  'SBI ATM — IIIT Campus':['🏧','State Bank of India ATM','AP IIIT Campus • Idupulapaya']
+  'SBI ATM — IIIT Campus':['🏧','State Bank of India ATM','AP IIIT Campus • Idupulapaya'],
+  'Campus Temple':['🛕','Campus temple / prayer space','IIIT RK Valley • Idupulapaya']
 };
 blocks.filter(b=>essentialCopy[b.name]).forEach(b=>{const d=document.createElement('div');d.className='facility';const c=essentialCopy[b.name];d.innerHTML=`<div class="facility-icon">${c[0]}</div><strong>${b.name}</strong><span>${c[1]}</span><span>${c[2]}</span><div class="facility-actions"><button class="facility-action" type="button">Set as destination →</button><button class="facility-map-action" type="button">Open in Google Maps ↗</button></div>`;d.querySelector('.facility-action').addEventListener('click',()=>{const idx=blocks.indexOf(b);destinationBuilding.value=String(idx);fillFloors(destinationFloor,idx);destinationFloor.value='0';fillRooms(destinationRoom,idx,0);document.getElementById('navigate').scrollIntoView({behavior:'smooth',block:'center'});message.textContent=`${b.name} selected as your destination.`;});
   d.querySelector('.facility-map-action').addEventListener('click',()=>window.open(mapsSearchUrl(b.query),'_blank','noopener,noreferrer'));
