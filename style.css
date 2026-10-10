@@ -97,3 +97,17 @@ footer{padding-top:8px}
 .temple-card strong{display:block;color:var(--primary-dark);font-size:18px}
 .temple-card span{display:block;margin-top:4px;color:var(--muted);font-size:13px;font-weight:700}
 @media(max-width:800px){.temple-card{grid-template-columns:58px 1fr}.temple-card .place-destination,.temple-card .place-map{grid-column:1/-1;width:100%}}
+
+/* Role-aware NAVIGO access-mode prototype */
+.access-card{border-color:#cbded5;background:linear-gradient(135deg,#fff 0%,#f5faf5 100%)}
+.access-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0}
+.access-option{display:flex;flex-direction:column;align-items:flex-start;gap:5px;text-align:left;min-height:124px;padding:17px;background:#fff;color:var(--primary-dark);border:1px solid var(--border);box-shadow:none}
+.access-option>span{font-size:23px}
+.access-option strong{font-size:15px}
+.access-option small{font-size:12px;line-height:1.4;color:var(--muted);font-weight:650}
+.access-option.active{background:#edf5e8;border:2px solid var(--green-dark);padding:16px;box-shadow:0 8px 20px rgba(94,152,59,.1)}
+.access-notice{padding:12px 14px;background:#f1f7f3;border-radius:11px;color:var(--primary-dark);font-size:13px;font-weight:750}
+.access-security-note{margin-top:12px;color:var(--muted);font-size:12px;line-height:1.55}
+.access-security-note strong{color:#8a5b18}
+[hidden]{display:none!important}
+@media(max-width:650px){.access-options{grid-template-columns:1fr}.access-option{min-height:0;display:grid;grid-template-columns:36px 1fr;column-gap:10px;align-items:center}.access-option>span{grid-row:1/3}.access-option small{grid-column:2}}
