@@ -18,6 +18,18 @@
 </div></header>
 <main>
   <section class="notice"><div class="notice-icon">i</div><div><strong>Prototype navigation model</strong><span>Indoor floor layouts are conceptual planning maps, not official floor plans. Outdoor building-to-building travel is handed to Google Maps.</span></div></section>
+  <section id="accessMode" class="card access-card">
+    <div class="section-kicker">ACCESS MODE</div>
+    <h2>Welcome to NAVIGO</h2>
+    <p class="hint">Choose the navigation view for this prototype. Visitors can navigate to buildings; campus members can explore room-level destinations.</p>
+    <div class="access-options" role="group" aria-label="Choose navigation access mode">
+      <button type="button" class="access-option active" data-mode="visitor"><span>👤</span><strong>Visitor</strong><small>Building-level access</small></button>
+      <button type="button" class="access-option" data-mode="student"><span>🎓</span><strong>Student preview</strong><small>Room & lab destinations</small></button>
+      <button type="button" class="access-option" data-mode="faculty"><span>👩‍🏫</span><strong>Faculty preview</strong><small>Room-level navigation</small></button>
+    </div>
+    <p id="accessNotice" class="access-notice" role="status">Visitor mode: room and floor selectors are hidden. Choose a building or campus facility as your destination.</p>
+    <p class="access-security-note"><strong>Prototype note:</strong> these are preview modes, not verified identities. Before real campus use, student/faculty access must be connected to approved sign-in and server-side permissions.</p>
+  </section>
   <section id="navigation" class="card">
     <div class="section-kicker">NAVIGATION</div><h2>Where do you want to go?</h2>
     <p class="hint">Choose your current location and destination. Same-building trips use the indoor prototype; trips between buildings use Google Maps for the outdoor section.</p>
