@@ -111,3 +111,5 @@ footer{padding-top:8px}
 .access-security-note strong{color:#8a5b18}
 [hidden]{display:none!important}
 @media(max-width:650px){.access-options{grid-template-columns:1fr}.access-option{min-height:0;display:grid;grid-template-columns:36px 1fr;column-gap:10px;align-items:center}.access-option>span{grid-row:1/3}.access-option small{grid-column:2}}
+
+.visitor-building-view{min-height:210px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(135deg,#f5faf5,#fff);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;gap:7px}.visitor-building-icon{width:64px;height:64px;border-radius:18px;display:grid;place-items:center;background:var(--mint-strong);font-size:32px}.visitor-building-view strong{font-size:20px;color:var(--primary-dark)}.visitor-building-view span{font-size:12px;font-weight:800;color:var(--green-dark);text-transform:uppercase;letter-spacing:.7px}.visitor-building-view p{max-width:470px;color:var(--muted);font-size:13px;margin-top:4px}
