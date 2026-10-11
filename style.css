@@ -113,3 +113,19 @@ footer{padding-top:8px}
 @media(max-width:650px){.access-options{grid-template-columns:1fr}.access-option{min-height:0;display:grid;grid-template-columns:36px 1fr;column-gap:10px;align-items:center}.access-option>span{grid-row:1/3}.access-option small{grid-column:2}}
 
 .visitor-building-view{min-height:210px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(135deg,#f5faf5,#fff);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;gap:7px}.visitor-building-icon{width:64px;height:64px;border-radius:18px;display:grid;place-items:center;background:var(--mint-strong);font-size:32px}.visitor-building-view strong{font-size:20px;color:var(--primary-dark)}.visitor-building-view span{font-size:12px;font-weight:800;color:var(--green-dark);text-transform:uppercase;letter-spacing:.7px}.visitor-building-view p{max-width:470px;color:var(--muted);font-size:13px;margin-top:4px}
+
+
+/* Supabase access-code gate */
+.auth-card{max-width:760px;margin:0 auto 24px;border-color:#cbded5;background:linear-gradient(135deg,#fff 0%,#f5faf5 100%)}
+.access-form{display:grid;gap:10px}
+.access-form label{margin:4px 0 0}
+.access-form input{width:100%;box-sizing:border-box;padding:15px 16px;border:1px solid #cfe0d8;border-radius:12px;background:#fff;color:var(--text);font:inherit;outline:none}
+.access-form input:focus{border-color:var(--green-dark);box-shadow:0 0 0 4px rgba(120,185,79,.16)}
+.access-form button{display:flex;justify-content:center;align-items:center;gap:12px;width:100%;margin-top:5px}
+.access-form button:disabled{opacity:.65;cursor:wait;transform:none}
+.access-error{min-height:1.4em;margin-top:12px;color:#a12b2b;font-size:13px;font-weight:750}
+.verified-row{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.verified-row h2{margin:0 0 8px}
+.verified-row .access-notice{margin:0}
+.verified-row .secondary-button{flex:none}
+@media(max-width:650px){.verified-row{align-items:stretch;flex-direction:column}.verified-row .secondary-button{width:100%}}
