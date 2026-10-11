@@ -85,8 +85,8 @@ accessForm.addEventListener('submit', async (event) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'apikey': 'PASTE_SUPABASE_PUBLISHABLE_KEY_HERE',
-        'Authorization': 'Bearer PASTE_LEGACY_ANON_JWT_HERE'
+        'apikey': 'sb_publishable_7h-xvm6LtlK7loS-z_egxw_XCQiQfsX',
+        'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN3amp2cXR5bGRvdnpscnVwc295Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE2NDk3MDYsImV4cCI6MjEwNzIyNTcwNn0._FYgq9eNERxWjN21jwQRo5lJKQJ6W-FyMvkpzBKhLOo'
       },
       body: JSON.stringify({ code })
     });
