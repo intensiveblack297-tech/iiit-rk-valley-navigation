@@ -18,17 +18,26 @@
 </div></header>
 <main>
   <section class="notice"><div class="notice-icon">i</div><div><strong>Prototype navigation model</strong><span>Indoor floor layouts are conceptual planning maps, not official floor plans. Outdoor building-to-building travel is handed to Google Maps.</span></div></section>
+  <section id="accessGate" class="card auth-card" aria-labelledby="accessGateTitle">
+    <div class="section-kicker">SECURE ACCESS</div>
+    <h2 id="accessGateTitle">Enter your NAVIGO access code</h2>
+    <p class="hint">Visitors use a temporary code from campus security. Students and faculty use their authorized campus access code.</p>
+    <form id="accessForm" class="access-form">
+      <label for="accessCode">Access code</label>
+      <input id="accessCode" name="accessCode" type="password" autocomplete="off" minlength="8" maxlength="256" required placeholder="Enter your access code">
+      <button id="verifyAccess" type="submit"><span>Verify and continue</span><span aria-hidden="true">→</span></button>
+    </form>
+    <p id="accessError" class="access-error" role="status" aria-live="polite"></p>
+    <p class="access-security-note"><strong>Note:</strong> use a code issued for you. Codes may expire or be limited to one use.</p>
+  </section>
+  <div id="appContent" hidden>
   <section id="accessMode" class="card access-card">
-    <div class="section-kicker">ACCESS MODE</div>
-    <h2>Welcome to NAVIGO</h2>
-    <p class="hint">Choose the navigation view for this prototype. Visitors can navigate to buildings; campus members can explore room-level destinations.</p>
-    <div class="access-options" role="group" aria-label="Choose navigation access mode">
-      <button type="button" class="access-option active" data-mode="visitor"><span>👤</span><strong>Visitor</strong><small>Building-level access</small></button>
-      <button type="button" class="access-option" data-mode="student"><span>🎓</span><strong>Student preview</strong><small>Room & lab destinations</small></button>
-      <button type="button" class="access-option" data-mode="faculty"><span>👩‍🏫</span><strong>Faculty preview</strong><small>Room-level navigation</small></button>
+    <div class="section-kicker">VERIFIED ACCESS</div>
+    <div class="verified-row">
+      <div><h2 id="verifiedWelcome">Welcome to NAVIGO</h2><p id="accessNotice" class="access-notice" role="status">Verify your access code to continue.</p></div>
+      <button id="signOutAccess" class="secondary-button" type="button">Lock NAVIGO</button>
     </div>
-    <p id="accessNotice" class="access-notice" role="status">Visitor mode: room and floor selectors are hidden. Choose a building or campus facility as your destination.</p>
-    <p class="access-security-note"><strong>Prototype note:</strong> these are preview modes, not verified identities. Before real campus use, student/faculty access must be connected to approved sign-in and server-side permissions.</p>
+    <p class="access-security-note"><strong>Prototype security note:</strong> verification is handled by Supabase, but the current campus room layouts are still stored in public website files. Do not use this prototype to protect confidential room information until access checks are enforced by a trusted backend.</p>
   </section>
   <section id="navigation" class="card">
     <div class="section-kicker">NAVIGATION</div><h2>Where do you want to go?</h2>
@@ -83,6 +92,7 @@
   <section class="card"><div class="section-kicker">ESSENTIAL FACILITIES</div><h2>Hospital, Bank & ATM</h2><p class="hint">These are campus support facilities. Select one to make it your destination, or open its Google Maps place.</p><div id="essentialLocations" class="facility-grid"></div><p class="facility-helper">Choose a facility below to make it your destination instantly.</p></section>
   <section class="card temple-section"><div class="section-kicker">CAMPUS TEMPLE</div><h2>Campus Temple</h2><p class="hint">A single ground-floor temple destination.</p><div class="temple-card"><div class="temple-card-icon">🛕</div><div><strong>Campus Temple</strong><span>Ground Floor • Destination only</span></div><button id="templeDestination" class="place-destination" type="button">Set as destination →</button><button id="templeMap" class="place-map" type="button">Open in Google Maps ↗</button></div></section><section class="card"><div class="section-kicker">LOCATIONS</div><h2>All prototype locations</h2><div id="locations" class="grid"></div></section>
   <section id="qr-access" class="qr-card card"><div class="qr-copy"><div class="section-kicker">ONE QR • FINAL ACCESS</div><h2>Scan. Navigate. Arrive.</h2><p>Keep this QR at the campus entrance, notice board or presentation poster. One scan opens the live NAVIGO campus guide.</p><div class="qr-points"><span>✓ No separate QR for each block</span><span>✓ Choose current location + destination</span><span>✓ Indoor prototype + Google Maps outdoors</span></div></div><div class="qr-panel"><div class="qr-frame"><img class="qr-image" src="https://api.qrserver.com/v1/create-qr-code/?size=420x420&data=https%3A%2F%2Fintensiveblack297-tech.github.io%2Fiiit-rk-valley-navigation%2F" alt="QR code opening the NAVIGO campus navigation website"></div><span>SCAN FOR CAMPUS NAVIGATION</span></div></section>
+  </div>
 </main>
 <footer><strong>NAVIGO</strong> • IIIT RK Valley Campus Navigation <span>•</span> Student Project • Prototype</footer>
 <script src="script.js"></script>
