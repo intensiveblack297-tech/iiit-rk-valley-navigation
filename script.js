@@ -31,7 +31,14 @@ const currentBuilding=document.getElementById('currentBuilding'),currentFloor=do
 const destinationBuilding=document.getElementById('destinationBuilding'),destinationFloor=document.getElementById('destinationFloor'),destinationRoom=document.getElementById('destinationRoom');
 let accessMode = 'visitor';
 const accessNotice = document.getElementById('accessNotice');
-const accessButtons = [...document.querySelectorAll('.access-option')];
+const accessGate = document.getElementById('accessGate');
+const appContent = document.getElementById('appContent');
+const accessForm = document.getElementById('accessForm');
+const accessCodeInput = document.getElementById('accessCode');
+const accessError = document.getElementById('accessError');
+const verifyAccessButton = document.getElementById('verifyAccess');
+const signOutAccessButton = document.getElementById('signOutAccess');
+const verifiedWelcome = document.getElementById('verifiedWelcome');
 const message=document.getElementById('message'),routeResult=document.getElementById('routeResult'),routeSummary=document.getElementById('routeSummary'),steps=document.getElementById('steps'),floorPreview=document.getElementById('floorPreview'),googleMaps=document.getElementById('googleMaps'),locations=document.getElementById('locations'),essentialLocations=document.getElementById('essentialLocations'),currentRoomField=document.getElementById('currentRoomField'),destinationRoomField=document.getElementById('destinationRoomField');
 function floorsFor(b){if(blocks[b].type==='temple')return templeFloors;if(blocks[b].type==='hostel')return hostelFloors;if(blocks[b].type==='sports')return sacFloors;if(blocks[b].type==='facility')return facilityFloors;if(blocks[b].type==='department')return departmentFloors;return academicFloors;}
 function roomsFor(b,f){return floorsFor(b)[f]||[];}
@@ -44,26 +51,79 @@ function placeName(b,f,r){if(blocks[b]?.type==='temple')return 'Campus Temple �
 function mapsSearchUrl(query){return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;}
 // Use Google Maps' current-device location as the origin. Do not force a fictional campus coordinate as origin.
 function mapsDirectionsUrl(toBlock){const destination=encodeURIComponent(blocks[toBlock].query+', Idupulapaya, Andhra Pradesh, India');return `https://www.google.com/maps/dir/?api=1&destination=${destination}&travelmode=walking`;}
-fillBuildings(currentBuilding);fillBuildings(destinationBuilding);fillFloors(currentFloor,0);fillFloors(destinationFloor,0);fillRooms(currentRoom,0,0);fillRooms(destinationRoom,0,0);toggleRoomField(currentBuilding,currentRoomField);toggleRoomField(destinationBuilding,destinationRoomField);applyAccessMode('visitor');
+fillBuildings(currentBuilding);fillBuildings(destinationBuilding);fillFloors(currentFloor,0);fillFloors(destinationFloor,0);fillRooms(currentRoom,0,0);fillRooms(destinationRoom,0,0);toggleRoomField(currentBuilding,currentRoomField);toggleRoomField(destinationBuilding,destinationRoomField);
+appContent.hidden = true;
+accessGate.hidden = false;
+
 function applyAccessMode(mode){
   accessMode=mode;
-  accessButtons.forEach(button=>{
-    const active=button.dataset.mode===mode;
-    button.classList.toggle('active',active);
-    button.setAttribute('aria-pressed',String(active));
-  });
   const visitor=mode==='visitor';
   [currentFloor,destinationFloor].forEach(el=>{document.querySelector(`label[for="${el.id}"]`)?.toggleAttribute('hidden',visitor);el.hidden=visitor;});
   [currentRoomField,destinationRoomField].forEach(el=>{const building=el.id==='currentRoomField'?currentBuilding:destinationBuilding;const hidden=visitor||blocks[+building.value]?.type==='temple';el.hidden=hidden;el.setAttribute('aria-hidden',String(hidden));});
   accessNotice.textContent=visitor
-    ?'Visitor mode: room and floor selectors are hidden. Choose a building or campus facility as your destination.'
+    ?'Verified visitor access: navigate to campus buildings and public facilities.'
     :mode==='student'
-      ?'Student preview: room, floor and lab destinations are visible. This preview does not verify student identity.'
-      :'Faculty preview: room, floor and lab destinations are visible. This preview does not verify faculty identity.';
+      ?'Verified student code accepted: room, floor and lab destinations are available in this prototype.'
+      :'Verified faculty code accepted: room, floor and lab destinations are available in this prototype.';
+  verifiedWelcome.textContent=mode==='visitor'?'Welcome, visitor':mode==='student'?'Welcome, student':'Welcome, faculty';
   routeResult.hidden=true;
   message.textContent='';
 }
-accessButtons.forEach(button=>button.addEventListener('click',()=>applyAccessMode(button.dataset.mode)));
+
+accessForm.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  accessError.textContent = '';
+  const code = accessCodeInput.value;
+  if (!code || code.trim() !== code) {
+    accessError.textContent = 'Enter your access code without extra spaces.';
+    return;
+  }
+  verifyAccessButton.disabled = true;
+  verifyAccessButton.innerHTML = '<span>Verifying…</span>';
+  try {
+    const response = await fetch('https://swjjvqtyldovzlrupsoy.supabase.co/functions/v1/verify-access-code', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': 'PASTE_SUPABASE_PUBLISHABLE_KEY_HERE',
+        'Authorization': 'Bearer PASTE_LEGACY_ANON_JWT_HERE'
+      },
+      body: JSON.stringify({ code })
+    });
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok || result.verified !== true || !['visitor','student','faculty'].includes(result.role)) {
+      if (response.status === 429) {
+        accessError.textContent = 'Too many attempts. Please wait before trying again.';
+      } else if (response.status === 401) {
+        accessError.textContent = 'That code is invalid, expired, or has already been used.';
+      } else if (response.status === 503) {
+        accessError.textContent = 'Verification is temporarily unavailable. Please try again later.';
+      } else {
+        accessError.textContent = 'We could not verify this code. Please try again.';
+      }
+      return;
+    }
+    accessCodeInput.value = '';
+    accessGate.hidden = true;
+    appContent.hidden = false;
+    applyAccessMode(result.role);
+    document.getElementById('navigation').scrollIntoView({behavior:'smooth',block:'start'});
+  } catch (error) {
+    accessError.textContent = 'Could not reach the verification service. Check your connection and try again.';
+  } finally {
+    verifyAccessButton.disabled = false;
+    verifyAccessButton.innerHTML = '<span>Verify and continue</span><span aria-hidden="true">→</span>';
+  }
+});
+
+signOutAccessButton.addEventListener('click', () => {
+  appContent.hidden = true;
+  accessGate.hidden = false;
+  accessCodeInput.value = '';
+  accessError.textContent = '';
+  applyAccessMode('visitor');
+  window.scrollTo({top:0,behavior:'smooth'});
+});
 currentBuilding.addEventListener('change',()=>{fillFloors(currentFloor,+currentBuilding.value);fillRooms(currentRoom,+currentBuilding.value,+currentFloor.value);toggleRoomField(currentBuilding,currentRoomField);if(accessMode==='visitor')currentRoomField.hidden=true;});
 destinationBuilding.addEventListener('change',()=>{fillFloors(destinationFloor,+destinationBuilding.value);fillRooms(destinationRoom,+destinationBuilding.value,+destinationFloor.value);toggleRoomField(destinationBuilding,destinationRoomField);if(accessMode==='visitor')destinationRoomField.hidden=true;});
 currentFloor.addEventListener('change',()=>fillRooms(currentRoom,+currentBuilding.value,+currentFloor.value));
