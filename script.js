@@ -1,5 +1,81 @@
 const campusCenter = '14.33571,78.53841';
 
+const SUPABASE_URL = 'https://swjjvqtyldovzlrupsoy.supabase.co';
+const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_7h-xvm6LtlK7loS-z_egxw_XCQiQfsX';
+
+// Handle Supabase password-recovery links that return to this page with tokens in the URL hash.
+(function handlePasswordRecoveryLink() {
+  const resetPanel = document.getElementById('passwordResetGate');
+  const accessPanel = document.getElementById('accessGate');
+  const appPanel = document.getElementById('appContent');
+  const resetForm = document.getElementById('passwordResetForm');
+  const resetMessage = document.getElementById('passwordResetMessage');
+  const saveButton = document.getElementById('saveNewPassword');
+  if (!resetPanel || !resetForm) return;
+
+  const params = new URLSearchParams(window.location.hash.replace(/^#/, ''));
+  const recoveryToken = params.get('access_token');
+  const recoveryType = params.get('type');
+  const authError = params.get('error_description') || params.get('error');
+  if (recoveryType !== 'recovery' && !authError) return;
+
+  if (accessPanel) accessPanel.hidden = true;
+  if (appPanel) appPanel.hidden = true;
+  resetPanel.hidden = false;
+
+  if (authError) {
+    resetMessage.textContent = 'This password-reset link could not be used. Request a new password recovery email from Supabase and open the newest link.';
+    resetForm.hidden = true;
+    return;
+  }
+  if (!recoveryToken) {
+    resetMessage.textContent = 'The reset token is missing from this link. Request a new password recovery email and open the newest link.';
+    resetForm.hidden = true;
+    return;
+  }
+
+  resetForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    resetMessage.textContent = '';
+    const password = document.getElementById('newPassword').value;
+    const confirmPassword = document.getElementById('confirmNewPassword').value;
+    if (password.length < 8) {
+      resetMessage.textContent = 'Choose a password with at least 8 characters.';
+      return;
+    }
+    if (password !== confirmPassword) {
+      resetMessage.textContent = 'The passwords do not match. Please try again.';
+      return;
+    }
+    saveButton.disabled = true;
+    saveButton.innerHTML = '<span>Saving…</span>';
+    try {
+      const response = await fetch(SUPABASE_URL + '/auth/v1/user', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_PUBLISHABLE_KEY,
+          'Authorization': 'Bearer ' + recoveryToken
+        },
+        body: JSON.stringify({ password })
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        resetMessage.textContent = result.msg || result.message || 'The reset link may have expired. Request a new password recovery email and use the newest link.';
+        return;
+      }
+      resetForm.hidden = true;
+      resetMessage.textContent = 'Your password has been updated. You can now return to NAVIGO and sign in to the administrator panel.';
+      window.history.replaceState({}, document.title, window.location.pathname + window.location.search);
+    } catch (error) {
+      resetMessage.textContent = 'Could not reach Supabase. Check your connection and try again.';
+    } finally {
+      saveButton.disabled = false;
+      saveButton.innerHTML = '<span>Save new password</span><span aria-hidden="true">→</span>';
+    }
+  });
+})();
+
 // Prototype campus model. Outdoor navigation uses Google Maps; indoor navigation uses our rough layouts.
 const blocks = [
   {name:'AB-1',icon:'🏢',query:'Academic Block 1, IIIT RGUKT RK Valley',type:'academic',smallDepartments:['Mathematics','Physics','Chemistry','English','Telugu','Management','Library Science','Physical Education']},
