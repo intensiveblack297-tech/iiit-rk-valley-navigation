@@ -513,3 +513,52 @@ document.getElementById('navigate').addEventListener('click',()=>{const cb=+curr
   floorPreview.innerHTML=`<div class="floor-title">${blocks[db].name} <span class="prototype-label">(visitor building view)</span></div><div class="visitor-building-view"><div class="visitor-building-icon">${blocks[db].icon}</div><strong>${blocks[db].name}</strong><span>Building-level destination</span><p>Follow campus signs to the public entrance. Room-level details are not shown in Visitor mode.</p></div>`;
   setMapsButtons(db);return;
 }if(cb===db&&cf===df&&cr===dr){routeSummary.textContent=`You are already at ${placeName(db,df,dr)}.`;addStep('No route is needed — your current location and destination are the same.');renderFloorMap(db,df,cr,dr,false);return;}routeSummary.textContent=`${placeName(cb,cf,cr)} → ${placeName(db,df,dr)}`;addStep(`Start at ${placeName(cb,cf,cr)}.`);if(blocks[db]?.type==='temple'){addStep('Follow the route to Campus Temple.');addStep('Arrive at the ground-floor temple entrance.');renderFloorMap(db,df,-1,-1,false);setMapsButtons(db);return;}if(cb===db&&cf===df){addStep('Follow the calculated blue route through the corridor.');addStep(`Arrive at ${roomsFor(db,df)[dr]} 🎯.`);renderFloorMap(db,df,cr,dr,true);return;}if(cb===db){addStep('Follow the indoor route to the nearest stairs/elevator.');addStep(`Take the stairs/elevator from ${floorLabel(cb,cf)} to ${floorLabel(db,df)}.`);addStep(`Follow the corridor on ${floorLabel(db,df)} to ${roomsFor(db,df)[dr]}.`);renderFloorMap(db,df,-1,dr,false);return;}addStep(`Follow the indoor route to the ${blocks[cb].name} entrance/exit.`);addStep(`For the outdoor section, Google Maps will use your phone's current location to route to ${blocks[db].name}.`);addStep(blocks[db].name==='Campus Temple'?`At Campus Temple, arrive at the ground-floor temple entrance.`:`At ${blocks[db].name}, go to ${floorLabel(db,df)} and follow the indoor route to ${roomsFor(db,df)[dr]}.`);setMapsButtons(db);renderFloorMap(db,df,-1,dr,false);});
+
+
+// Reference-inspired header interactions: mobile menu, administrator shortcut, and gated QR guidance.
+(function setupReferenceHeader() {
+  const toggle = document.getElementById('mobileNavToggle');
+  const navLinks = document.getElementById('topNavLinks');
+  const adminShortcut = document.getElementById('showAdminNav');
+  const adminFeature = document.getElementById('showAdminFeature');
+  const adminTrigger = document.getElementById('showAdminAccess');
+  const adminGate = document.getElementById('adminGate');
+  const accessGate = document.getElementById('accessGate');
+  const appContent = document.getElementById('appContent');
+  const qrLink = document.querySelector('.top-nav-qr');
+  const qrSection = document.getElementById('qr-access');
+
+  function closeMenu() {
+    if (navLinks) navLinks.classList.remove('open');
+    if (toggle) toggle.setAttribute('aria-expanded', 'false');
+  }
+
+  toggle?.addEventListener('click', () => {
+    const opening = !navLinks?.classList.contains('open');
+    navLinks?.classList.toggle('open', opening);
+    toggle.setAttribute('aria-expanded', String(opening));
+  });
+
+  navLinks?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  function openAdmin() {
+    closeMenu();
+    if (adminTrigger) adminTrigger.click();
+    adminGate?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  adminShortcut?.addEventListener('click', openAdmin);
+  adminFeature?.addEventListener('click', openAdmin);
+
+  qrLink?.addEventListener('click', (event) => {
+    if (qrSection && appContent?.hidden) {
+      event.preventDefault();
+      closeMenu();
+      accessGate?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const message = document.getElementById('accessError');
+      if (message) message.textContent = 'Verify your access code to open the campus QR section.';
+    }
+  });
+})();
