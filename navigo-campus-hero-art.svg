@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 650" role="img" aria-labelledby="title desc">
+<title id="title">NAVIGO campus route illustration</title>
+<desc id="desc">A calm, modern illustration of a university campus, a QR wayfinding sign, a curving path and a phone with a blue route.</desc>
+<defs>
+ <linearGradient id="canvas" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f4faf6"/><stop offset="1" stop-color="#e1f0e7"/></linearGradient>
+ <linearGradient id="building" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fffef8"/><stop offset="1" stop-color="#e8e4d8"/></linearGradient>
+ <linearGradient id="window" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8cd3d9"/><stop offset="1" stop-color="#4a9ca5"/></linearGradient>
+ <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#f9fff9"/><stop offset="1" stop-color="#dfefe5"/></linearGradient>
+ <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#143d40" flood-opacity=".15"/></filter>
+ <clipPath id="clip"><rect width="760" height="650" rx="30"/></clipPath>
+</defs>
+<g clip-path="url(#clip)">
+ <rect width="760" height="650" fill="url(#canvas)"/>
+ <circle cx="675" cy="55" r="125" fill="#d0e9d4" opacity=".72"/>
+ <circle cx="80" cy="90" r="80" fill="#fff" opacity=".58"/>
+ <g fill="#fff" opacity=".65"><ellipse cx="558" cy="93" rx="51" ry="15"/><ellipse cx="584" cy="79" rx="35" ry="23"/><ellipse cx="615" cy="94" rx="41" ry="12"/></g>
+ <!-- distant campus structure -->
+ <g transform="translate(164 140)" filter="url(#shadow)">
+  <path d="M0 58 64 18 157 40 225 0 289 35 350 19 414 58V287H0Z" fill="#d1cbbc"/>
+  <path d="M0 58 64 18 157 40 225 0 289 35 350 19 414 58V82L350 44 289 60 225 27 157 66 64 44 0 84Z" fill="#bdb6a8"/>
+  <rect x="15" y="78" width="384" height="209" fill="url(#building)"/>
+  <rect x="35" y="106" width="95" height="181" fill="#e8e4da"/>
+  <rect x="143" y="93" width="128" height="194" fill="#fffdf6"/>
+  <rect x="284" y="106" width="94" height="181" fill="#e8e4da"/>
+  <g fill="url(#window)">
+   <rect x="49" y="121" width="29" height="29" rx="2"/><rect x="88" y="121" width="29" height="29" rx="2"/>
+   <rect x="49" y="163" width="29" height="29" rx="2"/><rect x="88" y="163" width="29" height="29" rx="2"/>
+   <rect x="160" y="111" width="41" height="36" rx="2"/><rect x="211" y="111" width="41" height="36" rx="2"/>
+   <rect x="160" y="159" width="41" height="36" rx="2"/><rect x="211" y="159" width="41" height="36" rx="2"/>
+   <rect x="300" y="121" width="25" height="29" rx="2"/><rect x="337" y="121" width="25" height="29" rx="2"/>
+   <rect x="300" y="163" width="25" height="29" rx="2"/><rect x="337" y="163" width="25" height="29" rx="2"/>
+  </g>
+  <path d="M15 287H399" stroke="#c1b8a8" stroke-width="7"/>
+ </g>
+ <!-- landscaped foreground -->
+ <path d="M0 422C119 385 203 401 293 445s184 51 279 8 140-47 188-32v229H0Z" fill="#a6d967"/>
+ <path d="M0 477C115 434 201 445 301 487s196 56 294 12 127-51 165-37v188H0Z" fill="#73b84f"/>
+ <path d="M0 530C113 495 213 496 319 536s192 54 289 8 116-45 152-35v141H0Z" fill="#0b5960"/>
+ <path d="M0 572C118 535 212 546 320 579s204 41 301-1 103-39 139-30v72H0Z" fill="#063f49"/>
+ <!-- walkway -->
+ <path d="M292 650c28-79 77-106 104-139 31-37 48-67 49-106H571c9 58-10 106-49 150-33 37-69 60-96 95Z" fill="#d9d7cb"/>
+ <path d="M325 650c25-70 66-95 95-127 32-36 48-70 46-118h77c7 48-10 90-43 129-28 33-62 58-84 116Z" fill="#fffdf5"/>
+ <path d="M394 650c25-68 57-89 88-122" fill="none" stroke="#e6e2d5" stroke-width="3"/>
+ <!-- trees -->
+ <g><g transform="translate(26 320)"><rect x="25" y="68" width="10" height="79" rx="5" fill="#7b6245"/><circle cx="30" cy="44" r="41" fill="#81c84e"/><circle cx="0" cy="60" r="27" fill="#9ad95c"/><circle cx="57" cy="65" r="29" fill="#5fa447"/></g><g transform="translate(660 325)"><rect x="20" y="60" width="10" height="79" rx="5" fill="#7b6245"/><circle cx="24" cy="41" r="39" fill="#70bb4c"/><circle cx="0" cy="57" r="26" fill="#9ad95c"/><circle cx="51" cy="62" r="26" fill="#559f44"/></g></g>
+ <!-- QR destination sign -->
+ <g transform="translate(38 365)" filter="url(#shadow)">
+  <rect x="12" y="143" width="11" height="57" rx="4" fill="#063f49"/><rect x="153" y="143" width="11" height="57" rx="4" fill="#063f49"/>
+  <rect width="178" height="158" rx="18" fill="#06444e"/>
+  <rect x="11" y="11" width="156" height="116" rx="10" fill="#fffdf7"/>
+  <g transform="translate(35 30)" fill="#08282c">
+   <rect width="34" height="34"/><rect x="6" y="6" width="22" height="22" fill="#fff"/><rect x="12" y="12" width="10" height="10"/>
+   <rect x="73" width="34" height="34"/><rect x="79" y="6" width="22" height="22" fill="#fff"/><rect x="85" y="12" width="10" height="10"/>
+   <rect y="49" width="34" height="34"/><rect x="6" y="55" width="22" height="22" fill="#fff"/><rect x="12" y="61" width="10" height="10"/>
+   <path d="M42 3h9v9h-9zM54 18h9v9h-9zM42 32h9v9h-9zM63 38h9v9h-9zM42 54h9v9h-9zM61 61h9v9h-9zM77 46h9v9h-9zM94 59h9v9h-9zM52 75h9v9h-9z"/>
+  </g>
+  <rect x="45" y="137" width="88" height="4" rx="2" fill="#78b94f"/>
+ </g>
+ <!-- phone map -->
+ <g transform="translate(475 190) rotate(7 105 200)" filter="url(#shadow)">
+  <rect width="211" height="355" rx="31" fill="#092f35"/>
+  <rect x="11" y="11" width="189" height="333" rx="24" fill="#fffdf7"/>
+  <rect x="76" y="20" width="59" height="5" rx="3" fill="#d6e2da"/>
+  <rect x="25" y="43" width="161" height="246" rx="14" fill="url(#screen)"/>
+  <g stroke="#c7ddce" stroke-width="9" stroke-linecap="round" fill="none">
+   <path d="M39 94H174M35 151H175M39 210H174M77 57V275M129 57V275M173 57V275"/>
+  </g>
+  <g fill="#d8e6da"><rect x="48" y="105" width="41" height="29" rx="3"/><rect x="128" y="163" width="40" height="28" rx="3"/><rect x="54" y="223" width="45" height="31" rx="3"/><rect x="125" y="73" width="43" height="27" rx="3"/></g>
+  <path d="M49 251C70 225 87 212 100 190s17-32 29-48 21-21 33-30" stroke="#168bd2" stroke-width="7" stroke-linecap="round" fill="none"/>
+  <circle cx="49" cy="251" r="10" fill="#159a68" stroke="#fff" stroke-width="3"/>
+  <circle cx="162" cy="112" r="10" fill="#ed5a63" stroke="#fff" stroke-width="3"/>
+  <rect x="61" y="307" width="89" height="4" rx="2" fill="#cfddd3"/>
+ </g>
+ <!-- subtle route line decorative -->
+ <path d="M202 449C246 447 271 468 310 481" fill="none" stroke="#d1e9cf" stroke-width="5" stroke-linecap="round"/>
+</g>
+</svg>
