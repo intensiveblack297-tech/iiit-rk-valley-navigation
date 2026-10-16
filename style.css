@@ -566,3 +566,226 @@ main{margin-top:28px}
   .hero-feature{align-items:flex-start;flex-direction:column;padding:12px}
   .hero-feature-icon{width:35px;height:35px;min-width:35px}
 }
+
+
+/* NAVIGO typography refinement — consistent type scale, hierarchy, and readable controls. */
+:root{
+  --font-body:"Inter",ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --font-display:"Manrope","Inter",ui-sans-serif,system-ui,sans-serif;
+  --text:#173b3e;
+  --muted:#5f7375;
+  --border:#d9e5dd;
+  --shadow:0 12px 34px rgba(12,55,49,.065);
+}
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:22px;
+  -webkit-text-size-adjust:100%;
+  text-rendering:optimizeLegibility;
+}
+body{
+  font-family:var(--font-body);
+  font-size:15px;
+  font-weight:400;
+  line-height:1.65;
+  letter-spacing:-.012em;
+  color:var(--text);
+  font-optical-sizing:auto;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+h1,h2,h3,h4,h5,h6,
+.hero-reference-copy h1,
+.card h2,
+.route-side h3,
+.admin-dashboard-heading h3,
+.admin-table-heading h3{
+  font-family:var(--font-display);
+  font-optical-sizing:auto;
+  text-wrap:balance;
+  color:var(--primary-dark);
+}
+h1{font-weight:800}
+h2{font-weight:750}
+h3{font-weight:750}
+p{line-height:1.7}
+small{line-height:1.5}
+a,button,input,select,textarea{font-family:var(--font-body)}
+button{font-weight:700;letter-spacing:-.012em}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{
+  outline:3px solid rgba(63,145,87,.35);
+  outline-offset:3px;
+}
+::selection{background:#d7efcc;color:#073f45}
+
+/* Brand and primary hero typography */
+.top-brand-copy strong{
+  font-family:var(--font-display);
+  font-weight:800;
+  letter-spacing:-1.7px;
+}
+.top-brand-copy small{font-weight:700;letter-spacing:1.45px}
+.top-nav-link{font-weight:650;letter-spacing:-.015em}
+.top-nav-qr{font-weight:750;letter-spacing:-.01em}
+.hero-reference-eyebrow{
+  font-family:var(--font-body);
+  font-weight:800;
+  font-size:12px;
+  letter-spacing:2px;
+}
+.hero-reference-copy h1{
+  font-family:var(--font-display);
+  font-size:clamp(40px,4.25vw,61px);
+  line-height:1.06;
+  font-weight:800;
+  letter-spacing:-2.6px;
+  margin-bottom:18px;
+}
+.hero-reference-copy>p{
+  font-size:clamp(15px,1.18vw,17px);
+  line-height:1.8;
+  letter-spacing:-.015em;
+  font-weight:400;
+  color:#51696a;
+}
+.hero-highlight{font-size:12px;line-height:1.4;font-weight:600}
+.hero-reference-primary,.hero-reference-secondary{font-size:13px;font-weight:750;letter-spacing:-.015em}
+.hero-feature strong{font-family:var(--font-display);font-size:13px;font-weight:750;letter-spacing:-.025em}
+.hero-feature small{font-size:11px;line-height:1.6;letter-spacing:-.005em}
+
+/* A measured type scale for all content cards */
+main{font-size:14px}
+.card,.notice{padding:clamp(20px,2.2vw,29px)}
+.card h2{
+  font-size:clamp(22px,2vw,27px);
+  line-height:1.25;
+  letter-spacing:-.8px;
+  font-weight:750;
+  margin:0 0 9px;
+}
+.section-kicker{
+  font-size:10px;
+  line-height:1.4;
+  font-weight:800;
+  letter-spacing:1.8px;
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+.hint{
+  font-size:13.5px;
+  line-height:1.7;
+  letter-spacing:-.008em;
+  color:#687a7c;
+  margin-bottom:18px;
+}
+.notice strong{font-family:var(--font-display);font-size:14px;font-weight:750;letter-spacing:-.2px}
+.notice span{font-size:12.5px;line-height:1.65;letter-spacing:0}
+.route-side h3,.place strong{font-family:var(--font-display);font-size:14px;font-weight:750;line-height:1.45;letter-spacing:-.25px}
+.route-side>p,.place span,.map-note,.facility-helper{
+  font-size:12.5px;line-height:1.65;letter-spacing:0;color:#647779;
+}
+.step{line-height:1.6;font-size:13px}
+.step-number{font-family:var(--font-display);font-size:13px;font-weight:800}
+.floor-map-label{font-size:10px;letter-spacing:1px;font-weight:800}
+.room{font-size:11.5px;line-height:1.4;font-weight:600;letter-spacing:-.01em}
+.facility-action,.facility-map-action,.place-destination,.place-map{font-size:12px;font-weight:700;letter-spacing:-.01em}
+.qr-copy h2{font-family:var(--font-display);font-size:clamp(25px,3vw,34px);line-height:1.16;font-weight:800;letter-spacing:-1px}
+.qr-copy p{font-size:13.5px;line-height:1.75}
+.qr-points span{font-size:12px;line-height:1.6}
+.qr-panel>span{font-size:10px;line-height:1.5;font-weight:800;letter-spacing:1.25px}
+footer{font-size:12px;line-height:1.7;letter-spacing:.005em}
+footer strong{font-family:var(--font-display);font-weight:800;letter-spacing:.4px}
+
+/* Access gate: clearer labels, inputs, helper copy and error states */
+.auth-card h2{
+  font-family:var(--font-display);
+  font-size:clamp(22px,2.2vw,28px);
+  line-height:1.25;
+  font-weight:800;
+  letter-spacing:-.8px;
+}
+.access-form label,.admin-field label{
+  font-family:var(--font-body);
+  font-size:12px;
+  line-height:1.5;
+  font-weight:750;
+  letter-spacing:.005em;
+  color:#31564a;
+}
+.access-form input,.admin-field input,.admin-field select{
+  font-family:var(--font-body);
+  font-size:14px;
+  line-height:1.45;
+  font-weight:500;
+  letter-spacing:0;
+}
+.access-form input::placeholder,.admin-field input::placeholder{
+  color:#889897;font-weight:400;opacity:1;
+}
+.access-form button,.admin-create-form>button{
+  font-family:var(--font-body);
+  font-size:13px;
+  line-height:1.4;
+  font-weight:750;
+  letter-spacing:-.015em;
+  min-height:48px;
+}
+.access-error{font-size:12.5px;line-height:1.6;font-weight:650}
+.access-security-note{font-size:11.5px;line-height:1.65;letter-spacing:0}
+.access-notice{font-size:12.5px;line-height:1.6;font-weight:650}
+.admin-message{font-size:12.5px;line-height:1.6;font-weight:650}
+.admin-dashboard-heading h3,.admin-table-heading h3{
+  font-family:var(--font-display);font-size:21px;line-height:1.3;font-weight:750;letter-spacing:-.65px
+}
+.admin-dashboard-heading .hint{font-size:12.5px}
+.admin-field label{margin:2px 0 0}
+.admin-table{font-size:12px;line-height:1.5}
+.admin-table th{font-size:10px;font-weight:800;letter-spacing:.55px;text-transform:uppercase}
+.admin-table td{font-size:12px;line-height:1.55}
+.admin-status{font-size:10px;font-weight:800;letter-spacing:.1px}
+.admin-small-button{font-size:10.5px;font-weight:750}
+.admin-created-code strong{font-family:var(--font-display);font-size:14px;font-weight:800;letter-spacing:-.2px}
+.admin-created-code p{font-size:12px;line-height:1.6}
+.admin-created-code code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:14px;letter-spacing:.3px}
+.secondary-button{font-size:12px;font-weight:700;letter-spacing:-.01em}
+.admin-link-button{font-size:12px;font-weight:700}
+
+/* Location cards and small UI copy */
+.place{padding:16px 17px}
+.place strong{font-size:13.5px;margin-bottom:3px}
+.place span{display:block;font-size:12px;line-height:1.6}
+.facility-helper{font-size:11.5px}
+.temple-card strong{font-family:var(--font-display);font-weight:750}
+.temple-card span{font-size:12px;line-height:1.6}
+.result-heading h2{font-family:var(--font-display);font-weight:800;letter-spacing:-.8px}
+.step p{font-size:12.5px;line-height:1.65}
+
+/* Small-screen reading rhythm */
+@media(max-width:760px){
+  body{font-size:14px;line-height:1.65}
+  .top-brand-copy strong{font-size:28px;letter-spacing:-1.3px}
+  .top-brand-copy small{font-size:7px;letter-spacing:1px}
+  .hero-reference-copy h1{font-size:clamp(38px,8vw,50px);line-height:1.07;letter-spacing:-1.8px}
+  .hero-reference-copy>p{font-size:14.5px;line-height:1.7}
+  .hero-highlight{font-size:10.5px}
+  .hero-feature strong{font-size:12px}
+  .hero-feature small{font-size:10px}
+  .card h2,.auth-card h2{font-size:22px}
+  .hint{font-size:12.5px}
+  .access-form label,.admin-field label{font-size:12px}
+  .access-form input,.admin-field input,.admin-field select{font-size:14px}
+}
+@media(max-width:450px){
+  .top-brand-copy strong{font-size:25px;letter-spacing:-1.1px}
+  .hero-reference-copy h1{font-size:36px;letter-spacing:-1.4px;line-height:1.08}
+  .hero-reference-copy>p{font-size:14px;line-height:1.7}
+  .hero-reference-eyebrow{font-size:10px;letter-spacing:1.5px}
+  .section-kicker{font-size:9.5px;letter-spacing:1.5px}
+  .card,.notice{padding:19px}
+  .card h2,.auth-card h2{font-size:21px;letter-spacing:-.6px}
+  .hint{font-size:12px}
+  .place strong{font-size:13px}
+  .place span{font-size:11.5px}
+  .hero-feature strong{font-size:11.5px}
+  .hero-feature small{font-size:9.5px}
+}
