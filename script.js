@@ -65,7 +65,13 @@ const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_7h-xvm6LtlK7loS-z_egxw_XCQiQfsX
         return;
       }
       resetForm.hidden = true;
-      resetMessage.textContent = 'Your password has been updated. You can now return to NAVIGO and sign in to the administrator panel.';
+      resetMessage.textContent = 'Your password has been updated successfully.';
+      resetPanel.hidden = true;
+      if (accessPanel) {
+        accessPanel.hidden = false;
+        const accessError = document.getElementById('accessError');
+        if (accessError) accessError.textContent = 'Password updated successfully. Your administrator password is set; the admin panel setup is the next step.';
+      }
       window.history.replaceState({}, document.title, window.location.pathname + window.location.search);
     } catch (error) {
       resetMessage.textContent = 'Could not reach Supabase. Check your connection and try again.';
