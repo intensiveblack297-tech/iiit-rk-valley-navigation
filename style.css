@@ -915,3 +915,369 @@ footer strong{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSy
 @media(max-width:450px){
   .hero-reference-copy h1{letter-spacing:-1px}
 }
+
+
+/* Professional typography pass — all text uses real Inter; deployment #84 palette is retained. */
+:root{
+  --font-ui:"Inter",ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  --font-heading:"Inter",ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+}
+html{font-synthesis:none;text-size-adjust:100%;-webkit-text-size-adjust:100%;scroll-padding-top:22px}
+body,
+button,input,select,textarea{
+  font-family:var(--font-ui);
+  font-optical-sizing:auto;
+  font-kerning:normal;
+}
+body{
+  font-size:15px;
+  line-height:1.65;
+  font-weight:400;
+  letter-spacing:-.01em;
+  color:#16363d;
+}
+h1,h2,h3,h4,h5,h6,
+.hero-reference-copy h1,
+.card h2,
+.route-side h3,
+.admin-dashboard-heading h3,
+.admin-table-heading h3{
+  font-family:var(--font-heading);
+  font-optical-sizing:auto;
+  color:#063640;
+  text-wrap:balance;
+  font-synthesis:none;
+}
+h1,h2,h3,h4,h5,h6{font-weight:750}
+p{font-size:14px;line-height:1.75}
+strong,b{font-weight:700}
+small{font-size:12px;line-height:1.55}
+a,button{ -webkit-tap-highlight-color:transparent }
+::selection{background:#dceccf;color:#063640}
+
+/* Brand and navigation: crisp, not overly condensed. */
+.top-brand-copy strong{
+  font-family:var(--font-heading);
+  font-size:clamp(29px,3vw,38px);
+  font-weight:800;
+  line-height:1;
+  letter-spacing:-1.6px;
+}
+.top-brand-copy small{
+  font-size:9px;
+  line-height:1.4;
+  font-weight:700;
+  letter-spacing:1.45px;
+}
+.top-nav-link{
+  font-size:13px;
+  line-height:1.3;
+  font-weight:600;
+  letter-spacing:-.01em;
+}
+.top-nav-qr{
+  font-size:12.5px;
+  line-height:1.25;
+  font-weight:700;
+  letter-spacing:-.01em;
+}
+.hero-reference-copy .hero-reference-eyebrow{
+  font-size:11px;
+  line-height:1.5;
+  font-weight:700;
+  letter-spacing:1.8px;
+}
+.hero-reference-copy h1{
+  font-family:var(--font-heading);
+  font-size:clamp(42px,4.35vw,62px);
+  font-weight:800;
+  line-height:1.075;
+  letter-spacing:-2.2px;
+  text-wrap:balance;
+  margin:0 0 18px;
+}
+.hero-reference-copy>p{
+  max-width:500px;
+  font-size:16px;
+  line-height:1.8;
+  letter-spacing:-.01em;
+  font-weight:400;
+}
+.hero-highlight{
+  font-size:12px;
+  line-height:1.45;
+  font-weight:600;
+}
+.hero-highlight-icon{font-weight:700}
+.hero-reference-primary,.hero-reference-secondary{
+  font-size:13px;
+  line-height:1.35;
+  font-weight:700;
+  letter-spacing:-.01em;
+}
+.hero-reference-art-chip{
+  font-family:var(--font-ui);
+  font-size:9px;
+  line-height:1.4;
+  font-weight:750;
+  letter-spacing:.8px;
+}
+.hero-feature strong{
+  font-family:var(--font-heading);
+  font-size:13px;
+  line-height:1.45;
+  font-weight:700;
+  letter-spacing:-.2px;
+}
+.hero-feature small{
+  font-size:11.5px;
+  line-height:1.55;
+  font-weight:400;
+}
+
+/* Section titles, helper text and content cards have a measured hierarchy. */
+main{font-size:14px;line-height:1.65}
+.card h2,.auth-card h2{
+  font-family:var(--font-heading);
+  font-size:clamp(22px,2vw,26px);
+  font-weight:750;
+  line-height:1.3;
+  letter-spacing:-.65px;
+  margin:0 0 10px;
+}
+.section-kicker{
+  font-size:10px;
+  line-height:1.45;
+  font-weight:750;
+  letter-spacing:1.65px;
+  text-transform:uppercase;
+  margin-bottom:7px;
+}
+.hint{
+  font-size:13px;
+  line-height:1.75;
+  font-weight:400;
+  letter-spacing:0;
+  color:#66777b;
+  margin-bottom:18px;
+}
+.notice strong{
+  font-family:var(--font-heading);
+  font-size:14px;
+  line-height:1.5;
+  font-weight:700;
+}
+.notice span{
+  font-size:12.5px;
+  line-height:1.7;
+  font-weight:400;
+}
+.route-side h3{
+  font-family:var(--font-heading);
+  font-size:14px;
+  line-height:1.5;
+  font-weight:700;
+  letter-spacing:-.2px;
+}
+.route-side p,.place span,.map-note,.facility-helper{
+  font-size:12.5px;
+  line-height:1.65;
+  font-weight:400;
+  letter-spacing:0;
+  color:#66777b;
+}
+.place strong{
+  font-family:var(--font-heading);
+  font-size:13.5px;
+  line-height:1.5;
+  font-weight:700;
+  letter-spacing:-.15px;
+  margin-bottom:3px;
+}
+.room{
+  font-family:var(--font-ui);
+  font-size:12px;
+  line-height:1.4;
+  font-weight:600;
+  letter-spacing:-.02em;
+}
+.floor-map-label{
+  font-size:10px;
+  line-height:1.4;
+  font-weight:750;
+  letter-spacing:.9px;
+}
+.step{
+  font-size:13px;
+  line-height:1.7;
+  font-weight:400;
+}
+.step-number{
+  font-family:var(--font-heading);
+  font-size:12px;
+  font-weight:750;
+}
+.result-heading h2{
+  font-family:var(--font-heading);
+  font-size:clamp(23px,2vw,28px);
+  line-height:1.28;
+  font-weight:750;
+  letter-spacing:-.7px;
+}
+.qr-copy h2{
+  font-family:var(--font-heading);
+  font-size:clamp(25px,3vw,34px);
+  line-height:1.2;
+  font-weight:800;
+  letter-spacing:-1px;
+}
+.qr-copy p{font-size:13.5px;line-height:1.75}
+.qr-points span{font-size:12.5px;line-height:1.65}
+.qr-panel>span{
+  font-size:10px;
+  line-height:1.5;
+  font-weight:750;
+  letter-spacing:1.2px;
+}
+footer{font-size:12px;line-height:1.75;letter-spacing:0}
+footer strong{font-family:var(--font-heading);font-weight:800;letter-spacing:-.3px}
+
+/* Clear and comfortable form typography for visitor and administrator flows. */
+.auth-card h2{
+  font-size:clamp(22px,2.2vw,27px);
+  line-height:1.28;
+  font-weight:750;
+  letter-spacing:-.65px;
+}
+.auth-card .hint{font-size:13px;line-height:1.7}
+.access-form label,.admin-field label{
+  font-family:var(--font-ui);
+  font-size:12.5px;
+  line-height:1.5;
+  font-weight:650;
+  letter-spacing:0;
+  color:#36534a;
+}
+.access-form input,.admin-field input,.admin-field select{
+  font-family:var(--font-ui);
+  font-size:14px;
+  line-height:1.5;
+  font-weight:400;
+  letter-spacing:0;
+}
+.access-form input::placeholder,.admin-field input::placeholder{
+  font-family:var(--font-ui);
+  font-size:13px;
+  font-weight:400;
+  color:#81908e;
+  opacity:1;
+}
+.access-form button,.admin-create-form>button{
+  font-family:var(--font-ui);
+  font-size:13px;
+  line-height:1.4;
+  font-weight:700;
+  letter-spacing:-.005em;
+}
+.admin-link-button,.secondary-button{
+  font-family:var(--font-ui);
+  font-size:12.5px;
+  line-height:1.4;
+  font-weight:650;
+  letter-spacing:0;
+}
+.access-error,.admin-message{
+  font-size:12.5px;
+  line-height:1.65;
+  font-weight:600;
+}
+.access-security-note{font-size:11.5px;line-height:1.65;font-weight:400}
+.access-notice{font-size:12.5px;line-height:1.65;font-weight:600}
+
+/* Admin panel data must remain readable, especially expiry and usage values. */
+.admin-dashboard-heading h3,.admin-table-heading h3{
+  font-family:var(--font-heading);
+  font-size:21px;
+  line-height:1.35;
+  font-weight:750;
+  letter-spacing:-.5px;
+}
+.admin-dashboard-heading .hint{font-size:12.5px;line-height:1.65}
+.admin-table{
+  font-family:var(--font-ui);
+  font-size:12.5px;
+  line-height:1.55;
+}
+.admin-table th{
+  font-size:10.5px;
+  line-height:1.45;
+  font-weight:750;
+  letter-spacing:.7px;
+  text-transform:uppercase;
+}
+.admin-table td{
+  font-size:12.5px;
+  line-height:1.6;
+  font-weight:400;
+}
+.admin-status{
+  font-size:10.5px;
+  line-height:1.35;
+  font-weight:700;
+  letter-spacing:0;
+}
+.admin-small-button{
+  font-size:11px;
+  line-height:1.4;
+  font-weight:650;
+}
+.admin-created-code strong{
+  font-family:var(--font-heading);
+  font-size:14px;
+  line-height:1.5;
+  font-weight:750;
+}
+.admin-created-code p{font-size:12.5px;line-height:1.65}
+.admin-created-code code{
+  font-family:ui-monospace,SFMono-Regular,Consolas,monospace;
+  font-size:14px;
+  line-height:1.6;
+  letter-spacing:.2px;
+}
+button{font-family:var(--font-ui);letter-spacing:0}
+input,select,textarea{font-family:var(--font-ui);letter-spacing:0}
+
+/* Readable mobile scale without overflow or cramped headings. */
+@media(max-width:760px){
+  body{font-size:14px;line-height:1.65}
+  .top-brand-copy strong{font-size:28px;letter-spacing:-1.2px}
+  .top-brand-copy small{font-size:7px;letter-spacing:1px}
+  .hero-reference-copy h1{
+    font-size:clamp(38px,8vw,50px);
+    line-height:1.08;
+    letter-spacing:-1.65px;
+  }
+  .hero-reference-copy>p{font-size:14.5px;line-height:1.75}
+  .hero-highlight{font-size:10.5px}
+  .hero-feature strong{font-size:12px}
+  .hero-feature small{font-size:10px;line-height:1.5}
+  .card h2,.auth-card h2{font-size:22px;line-height:1.3}
+  .hint{font-size:12.5px}
+  .access-form label,.admin-field label{font-size:12px}
+  .access-form input,.admin-field input,.admin-field select{font-size:14px}
+  .admin-table td{font-size:12px}
+}
+@media(max-width:450px){
+  .top-brand-copy strong{font-size:25px;letter-spacing:-1px}
+  .hero-reference-copy h1{font-size:36px;line-height:1.1;letter-spacing:-1.25px}
+  .hero-reference-copy>p{font-size:14px;line-height:1.7}
+  .hero-reference-eyebrow{font-size:10px;letter-spacing:1.3px}
+  .section-kicker{font-size:9.5px;letter-spacing:1.4px}
+  .card h2,.auth-card h2{font-size:21px;letter-spacing:-.4px}
+  .hint{font-size:12px;line-height:1.65}
+  .place strong{font-size:13px}
+  .place span{font-size:11.5px}
+  .hero-feature strong{font-size:11.5px}
+  .hero-feature small{font-size:9.5px}
+  .admin-table td{font-size:11.5px}
+}
