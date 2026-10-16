@@ -129,3 +129,71 @@ footer{padding-top:8px}
 .verified-row .access-notice{margin:0}
 .verified-row .secondary-button{flex:none}
 @media(max-width:650px){.verified-row{align-items:stretch;flex-direction:column}.verified-row .secondary-button{width:100%}}
+
+
+/* NAVIGO secure administrator panel */
+.admin-link-button{
+  display:block;margin:18px auto 0;padding:8px 12px;background:transparent!important;
+  color:var(--green-dark)!important;border:0!important;box-shadow:none!important;
+  font-size:13px;font-weight:800;text-decoration:underline;text-underline-offset:4px;
+}
+.admin-link-button:hover{transform:none!important;box-shadow:none!important;color:var(--primary-dark)!important}
+.admin-back-button{margin-top:4px}
+.admin-dashboard-heading,.admin-table-heading{
+  display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin:26px 0 16px;
+}
+.admin-dashboard-heading h3,.admin-table-heading h3{margin:0 0 6px;color:var(--primary-dark);font-size:22px}
+.admin-dashboard-heading .hint{margin:0;max-width:610px;font-size:13px}
+.admin-create-form{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:end;
+  border:1px solid var(--border);border-radius:16px;background:#f7faf7;padding:18px;
+}
+.admin-field{display:flex;flex-direction:column;gap:8px;min-width:0}
+.admin-field label{font-size:13px;font-weight:800;color:var(--primary-dark)}
+.admin-field input,.admin-field select{
+  width:100%;box-sizing:border-box;padding:12px 13px;border:1px solid #cfe0d8;border-radius:10px;
+  background:#fff;color:var(--text);font:inherit;min-height:46px;
+}
+.admin-create-form>button{grid-column:1/-1;margin-top:2px;width:100%}
+.admin-create-form button:disabled{opacity:.65;cursor:wait}
+.admin-message{min-height:1.5em;margin:12px 0;color:var(--green-dark);font-size:13px;font-weight:750}
+.admin-created-code{
+  display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;
+  margin:16px 0;padding:18px;border:1px solid #b8d4b0;border-radius:14px;background:#f0f8ed;
+}
+.admin-created-code>div{grid-column:1/-1}
+.admin-created-code strong{color:var(--primary-dark)}
+.admin-created-code p{margin:5px 0 0;color:var(--muted);font-size:13px}
+.admin-created-code code{
+  display:block;min-width:0;overflow-wrap:anywhere;padding:13px;border:1px dashed #9bb995;
+  border-radius:9px;background:#fff;color:var(--primary-dark);font-size:15px;font-weight:850;letter-spacing:.5px;
+}
+.admin-table-heading{align-items:center;margin-top:26px}
+.admin-table-heading h3{margin:0}
+.admin-table-wrap{width:100%;overflow-x:auto;border:1px solid var(--border);border-radius:14px;background:#fff}
+.admin-table{width:100%;border-collapse:collapse;min-width:760px;font-size:13px}
+.admin-table th,.admin-table td{padding:13px 12px;text-align:left;vertical-align:middle;border-bottom:1px solid #e5ede8}
+.admin-table th{background:#f3f8f4;color:var(--primary-dark);font-weight:850;white-space:nowrap}
+.admin-table tbody tr:last-child td{border-bottom:0}
+.admin-table td{color:var(--text);line-height:1.45}
+.admin-status{display:inline-flex;padding:5px 9px;border-radius:999px;font-size:11px;font-weight:850;white-space:nowrap}
+.status-active{background:#e7f6e7;color:#21612c}
+.status-expired,.status-used{background:#fff2d9;color:#8a5b18}
+.status-revoked{background:#fde8e8;color:#a12b2b}
+.admin-row-actions{display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+.admin-small-button{padding:7px 9px;margin:0;border-radius:8px;font-size:11px;font-weight:800;white-space:nowrap}
+.admin-small-button.danger{background:#fff;color:#a12b2b;border:1px solid #e8baba;box-shadow:none}
+.admin-small-button.danger:hover{background:#fff0f0;transform:none}
+.admin-table td[colspan]{padding:20px;color:var(--muted)}
+#adminGate .access-form{margin-top:18px}
+#adminDashboard[hidden],#adminLoginForm[hidden]{display:none!important}
+@media(max-width:760px){
+  .admin-create-form{grid-template-columns:1fr}
+  .admin-create-form>button{grid-column:auto}
+  .admin-dashboard-heading{align-items:stretch;flex-direction:column}
+  .admin-dashboard-heading>.secondary-button{width:100%}
+  .admin-table-heading{align-items:stretch;flex-direction:column}
+  .admin-created-code{grid-template-columns:1fr}
+  .admin-created-code>div{grid-column:auto}
+  .admin-created-code>.secondary-button{width:100%}
+}
