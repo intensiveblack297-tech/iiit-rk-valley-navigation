@@ -8,39 +8,67 @@
 <link rel="stylesheet" href="style.css"><link rel="icon" href="navigo-mark.svg" type="image/svg+xml">
 </head>
 <body>
-<header class="hero hero-refined">
-  <div class="hero-inner hero-inner-refined">
-    <div class="brand brand-refined">
-      <img class="brand-mark" src="navigo-mark.svg" alt="NAVIGO logo mark">
-      <div class="brand-text"><div class="brand-name">NAVIGO</div><div class="brand-tagline">Scan. Navigate. Arrive.</div></div>
-    </div>
-    <div class="hero-layout hero-layout-refined">
-      <div class="hero-copy hero-copy-refined">
-        <span class="hero-pill">CAMPUS NAVIGATION • IIIT RK VALLEY</span>
-        <h1>Your campus.<br><em>One clear route.</em></h1>
-        <p>Find academic blocks, departments, hostels and essential facilities with one clear campus navigation guide.</p>
-        <div class="hero-actions hero-actions-refined">
-          <a href="#navigation" class="hero-cta">Start navigating <span>→</span></a>
-          <a href="#qr-access" class="hero-link">How the campus QR works</a>
-        </div>
-        <div class="hero-steps hero-steps-refined">
-          <div><b>01</b><span>Scan</span></div>
-          <div class="hero-step-line"></div>
-          <div><b>02</b><span>Navigate</span></div>
-          <div class="hero-step-line"></div>
-          <div><b>03</b><span>Arrive</span></div>
-        </div>
-        <div class="hero-location"><span class="hero-location-icon">⌖</span><span><strong>IIIT RK Valley</strong><small>Idupulapaya • Kadapa • Andhra Pradesh</small></span></div>
+<header class="hero hero-reference" id="home">
+  <div class="top-nav-wrap">
+    <nav class="top-nav" aria-label="Main navigation">
+      <a class="top-brand" href="#home" aria-label="NAVIGO home">
+        <img src="navigo-mark.svg" alt="" class="top-brand-mark">
+        <span class="top-brand-copy"><strong>NAVIGO</strong><small>YOUR CAMPUS • YOUR WAY</small></span>
+      </a>
+      <div class="top-nav-links">
+        <a class="top-nav-link active" href="#home">Home</a>
+        <a class="top-nav-link" href="#navigation">Navigation</a>
+        <a class="top-nav-link" href="#accessGate">Access Code</a>
+        <button type="button" class="top-nav-link top-nav-button" id="showAdminNav">Admin</button>
+        <a class="top-nav-link" href="#about">About</a>
       </div>
-      <div class="hero-visual hero-visual-refined">
-        <img src="navigo-campus-hero-art.svg?v=1" alt="Illustrated campus buildings, QR wayfinding sign, path and a phone displaying a route" fetchpriority="high">
-        <div class="hero-art-caption"><span class="hero-art-dot"></span><span>ONE QR FOR THE WHOLE CAMPUS</span></div>
+      <a class="top-nav-qr" href="#qr-access"><span aria-hidden="true">▦</span> Scan QR</a>
+      <button class="top-nav-menu" id="mobileNavToggle" type="button" aria-expanded="false" aria-controls="topNavLinks" aria-label="Toggle navigation menu">☰</button>
+    </nav>
+  </div>
+  <div class="hero-reference-stage">
+    <div class="hero-reference-copy">
+      <span class="hero-reference-eyebrow">IIIT RK VALLEY</span>
+      <h1>Explore Your Campus<br><span>with NAVIGO</span></h1>
+      <p>Find your way with ease — from blocks and departments to rooms and facilities. Your campus, one scan away.</p>
+      <div class="hero-reference-highlights">
+        <div class="hero-highlight"><span class="hero-highlight-icon" aria-hidden="true">➤</span><span>Indoor<br>Navigation</span></div>
+        <div class="hero-highlight-divider"></div>
+        <div class="hero-highlight"><span class="hero-highlight-icon" aria-hidden="true">⌖</span><span>Outdoor<br>Navigation</span></div>
+        <div class="hero-highlight-divider"></div>
+        <div class="hero-highlight"><span class="hero-highlight-icon" aria-hidden="true">▦</span><span>Access<br>Control</span></div>
+      </div>
+      <div class="hero-reference-actions">
+        <a href="#navigation" class="hero-reference-primary">Start Navigating <span aria-hidden="true">→</span></a>
+        <a href="#accessGate" class="hero-reference-secondary"><span aria-hidden="true">⚿</span> Access Code</a>
       </div>
     </div>
+    <div class="hero-reference-art">
+      <img src="navigo-campus-hero-art.svg?v=2" alt="NAVIGO campus scene with academic building, QR wayfinding sign, green campus paths, and a phone map route" fetchpriority="high">
+      <div class="hero-reference-art-chip"><span></span> SCAN • NAVIGATE • ARRIVE</div>
+    </div>
+  </div>
+  <div class="hero-reference-features" aria-label="NAVIGO key features">
+    <a href="#navigation" class="hero-feature">
+      <span class="hero-feature-icon" aria-hidden="true">➤</span>
+      <span><strong>Campus Navigation</strong><small>Find destinations indoors or outdoors.</small></span>
+    </a>
+    <a href="#accessGate" class="hero-feature">
+      <span class="hero-feature-icon" aria-hidden="true">▦</span>
+      <span><strong>Secure Access</strong><small>Use your authorized access code.</small></span>
+    </a>
+    <button type="button" class="hero-feature hero-feature-button" id="showAdminFeature">
+      <span class="hero-feature-icon" aria-hidden="true">⬟</span>
+      <span><strong>Admin Panel</strong><small>Manage and generate access codes.</small></span>
+    </button>
+    <a href="#navigation" class="hero-feature">
+      <span class="hero-feature-icon" aria-hidden="true">⌖</span>
+      <span><strong>Multiple Locations</strong><small>Explore blocks, rooms, and facilities.</small></span>
+    </a>
   </div>
 </header>
 <main>
-  <section class="notice"><div class="notice-icon">i</div><div><strong>Prototype navigation model</strong><span>Indoor floor layouts are conceptual planning maps, not official floor plans. Outdoor building-to-building travel is handed to Google Maps.</span></div></section>
+  <section class="notice" id="about"><div class="notice-icon">i</div><div><strong>Prototype navigation model</strong><span>Indoor floor layouts are conceptual planning maps, not official floor plans. Outdoor building-to-building travel is handed to Google Maps.</span></div></section>
   <section id="accessGate" class="card auth-card" aria-labelledby="accessGateTitle">
     <div class="section-kicker">SECURE ACCESS</div>
     <h2 id="accessGateTitle">Enter your NAVIGO access code</h2>
