@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+<title id="title">NAVIGO campus navigation</title>
+<desc id="desc">Illustrated IIIT RK Valley campus with a QR sign, landscaped walkway, and phone showing an indoor route.</desc>
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e3f3f4"/><stop offset=".7" stop-color="#f7faf4"/><stop offset="1" stop-color="#dceee3"/></linearGradient>
+ <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#8ed2d6"/><stop offset="1" stop-color="#438e9a"/></linearGradient>
+ <linearGradient id="grass" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#a5db69"/><stop offset="1" stop-color="#65a941"/></linearGradient>
+ <filter id="shade" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#0b4650" flood-opacity=".16"/></filter>
+ <clipPath id="clip"><rect width="1200" height="760" rx="32"/></clipPath>
+</defs>
+<g clip-path="url(#clip)">
+<rect width="1200" height="760" fill="url(#bg)"/>
+<circle cx="1100" cy="40" r="125" fill="#d7eddf" opacity=".65"/>
+<g fill="#fff" opacity=".72"><ellipse cx="930" cy="151" rx="72" ry="19"/><ellipse cx="958" cy="132" rx="48" ry="30"/><ellipse cx="1002" cy="152" rx="58" ry="18"/><ellipse cx="164" cy="210" rx="75" ry="19"/><ellipse cx="195" cy="192" rx="48" ry="28"/></g>
+<!-- NAVIGO identity -->
+<g transform="translate(68 50)"><path d="M38 0C16 0 0 16 0 39c0 26 38 67 38 67S76 65 76 39C76 16 60 0 38 0Z" fill="#398a49"/><circle cx="38" cy="38" r="25" fill="#f8fbf4"/><path d="M38 17 25 50l13-7 13 7Z" fill="#0b4650"/><path d="M38 32 35 45l3-2 4 2Z" fill="#78b94f"/><text x="98" y="52" font-family="Arial,sans-serif" font-size="57" font-weight="800" letter-spacing="2" fill="#063f45">NAVIGO</text><text x="102" y="81" font-family="Arial,sans-serif" font-size="17" font-weight="700" letter-spacing="2.8" fill="#398a65">YOUR CAMPUS • YOUR WAY</text></g>
+<!-- campus greenery -->
+<g><g transform="translate(24 320)"><rect x="32" y="72" width="12" height="129" rx="6" fill="#775c40"/><circle cx="37" cy="53" r="51" fill="#83c84d"/><circle cx="2" cy="74" r="34" fill="#8dd356"/><circle cx="70" cy="83" r="34" fill="#5fa749"/></g><g transform="translate(1080 309)"><rect x="33" y="89" width="12" height="131" rx="6" fill="#775c40"/><circle cx="39" cy="52" r="53" fill="#65b849"/><circle cx="2" cy="77" r="34" fill="#8bcf4f"/><circle cx="80" cy="86" r="35" fill="#4c9e45"/></g></g>
+<!-- academic campus building -->
+<g filter="url(#shade)">
+ <path d="M290 307 364 263 506 284 592 238 681 264 783 243 909 286 909 522 290 522Z" fill="#d7d0c2"/>
+ <path d="M290 307 364 263 506 284 592 238 681 264 783 243 909 286 909 317 783 275 681 297 592 269 506 314 364 295 290 336Z" fill="#bcb5a7"/>
+ <rect x="317" y="314" width="559" height="206" fill="#f2efe6"/>
+ <rect x="354" y="346" width="151" height="174" fill="#e7e4da"/><rect x="519" y="331" width="198" height="189" fill="#fffdf5"/><rect x="731" y="346" width="113" height="174" fill="#e7e4da"/>
+ <g fill="url(#glass)"><path d="M373 365h48v39h-48zM433 365h50v39h-50zM373 418h48v39h-48zM433 418h50v39h-50zM541 355h69v46h-69zM623 355h70v46h-70zM541 414h69v46h-69zM623 414h70v46h-70zM750 366h31v34h-31zM791 366h31v34h-31zM750 412h31v34h-31zM791 412h31v34h-31z"/></g>
+ <path d="M317 521H876" stroke="#b6ad9d" stroke-width="9"/>
+ <rect x="510" y="299" width="213" height="31" rx="15" fill="#fffdf6"/>
+ <text x="616" y="321" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="800" letter-spacing="1.4" fill="#47716b">IIIT RK VALLEY</text>
+</g>
+<!-- lawns and campus path -->
+<path d="M0 520c156-34 281-6 398 37s256 34 377-8 290-46 425 3v208H0Z" fill="url(#grass)"/>
+<path d="M0 594c185-60 326-16 469 28s272 54 414-9 224-51 317-25v172H0Z" fill="#0b5960"/>
+<path d="M0 632c206-60 324-12 471 32s260 48 412-14 220-53 317-25v135H0Z" fill="#0b4650"/>
+<path d="M0 675c186-45 324-17 457 25s252 49 389-10 243-51 354-26v96H0Z" fill="#78b94f"/>
+<path d="M0 709c199-45 335-8 474 23s263 38 407-17 232-45 319-26v71H0Z" fill="#063640"/>
+<path d="M536 519c-3 42-60 63-92 104s-29 91-73 137h175c13-53 49-77 81-111s57-79 36-130Z" fill="#d9d7cd"/>
+<path d="M546 524c-6 40-59 64-84 100s-17 91-49 136h117c15-42 46-71 80-108s53-83 29-128Z" fill="#fffdf4"/>
+<!-- QR campus sign -->
+<g transform="translate(82 404)" filter="url(#shade)">
+ <rect x="20" y="196" width="17" height="63" rx="5" fill="#06434a"/><rect x="207" y="196" width="17" height="63" rx="5" fill="#06434a"/><rect width="245" height="222" rx="20" fill="#06434a"/><rect x="14" y="14" width="217" height="166" rx="12" fill="#fffdf7"/>
+ <g transform="translate(43 37)" fill="#071f20"><rect width="46" height="46"/><rect x="8" y="8" width="30" height="30" fill="#fff"/><rect x="15" y="15" width="16" height="16"/><rect x="109" width="46" height="46"/><rect x="117" y="8" width="30" height="30" fill="#fff"/><rect x="124" y="15" width="16" height="16"/><rect y="85" width="46" height="46"/><rect x="8" y="93" width="30" height="30" fill="#fff"/><rect x="15" y="100" width="16" height="16"/><path d="M57 5h12v12H57zM75 22h12v12H75zM57 40h12v12H57zM91 5h12v22H91zM56 64h12v12H56zM76 57h12v12H76zM94 46h12v12H94zM114 61h12v12H114zM60 85h12v12H60zM83 83h12v12H83zM102 94h12v12H102zM126 83h16v16H126zM87 112h12v12H87zM143 112h12v12H143zM112 128h12v12H112z"/></g>
+ <text x="122" y="203" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="800" fill="#fff">SCAN • NAVIGATE • ARRIVE</text>
+</g>
+<!-- phone with route -->
+<g transform="translate(817 276) rotate(7 135 220)" filter="url(#shade)">
+ <rect width="270" height="444" rx="37" fill="#092e34"/><rect x="13" y="13" width="244" height="418" rx="28" fill="#fffdf7"/>
+ <text x="135" y="50" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" font-weight="800" fill="#0b4650">C-204 • NAVIGO</text>
+ <rect x="32" y="73" width="206" height="300" rx="18" fill="#e6f1e7"/>
+ <g stroke="#c5d9ca" stroke-width="12" stroke-linecap="round" fill="none"><path d="M53 125H213M48 193H215M57 265H213M92 88V351M157 88V351M220 88V351"/></g>
+ <g fill="#d9e4d8"><rect x="68" y="142" width="51" height="34" rx="4"/><rect x="166" y="209" width="48" height="30" rx="4"/><rect x="81" y="284" width="55" height="37" rx="4"/><rect x="153" y="112" width="55" height="33" rx="4"/></g>
+ <path d="M62 323c24-25 39-46 60-67s31-36 43-62 31-32 45-51" stroke="#1694dc" stroke-width="8" fill="none" stroke-linecap="round"/>
+ <circle cx="62" cy="323" r="13" fill="#16a578"/><circle cx="210" cy="143" r="14" fill="#ed5a63"/>
+ <text x="135" y="402" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#5b7975">Indoor route preview</text>
+</g>
+<!-- information strip -->
+<g transform="translate(66 653)"><rect width="550" height="81" rx="22" fill="#053d46" opacity=".96"/><circle cx="42" cy="41" r="21" fill="#78b94f"/><path d="M42 27a10 10 0 0 0-10 10c0 8 10 17 10 17s10-9 10-17a10 10 0 0 0-10-10Zm0 13a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Z" fill="#053d46"/><text x="79" y="32" font-family="Arial,sans-serif" font-size="12" letter-spacing="2.6" font-weight="700" fill="#b5d7d4">CAMPUS GUIDE</text><text x="79" y="59" font-family="Arial,sans-serif" font-size="22" font-weight="800" fill="#fff">Indoor + outdoor navigation</text></g>
+<g transform="translate(707 688)"><path d="M15 0C5 0 0 7 0 16c0 11 15 25 15 25s15-14 15-25C30 7 24 0 15 0Zm0 21a5 5 0 1 1 0-10 5 5 0 0 1 0 10Z" fill="#9ddc6b"/><text x="43" y="17" font-family="Arial,sans-serif" font-size="16" font-weight="600" fill="#d8e9db">Idupulapaya • Kadapa • Andhra Pradesh</text></g>
+</g>
+</svg>
