@@ -29,6 +29,64 @@
     </form>
     <p id="accessError" class="access-error" role="status" aria-live="polite"></p>
     <p class="access-security-note"><strong>Note:</strong> use a code issued for you. Codes may expire or be limited to one use.</p>
+    <button id="showAdminAccess" class="admin-link-button" type="button">Administrator sign in →</button>
+  </section>
+  <section id="adminGate" class="card auth-card admin-gate" aria-labelledby="adminGateTitle" hidden>
+    <div class="section-kicker">ADMINISTRATION</div>
+    <h2 id="adminGateTitle">NAVIGO administrator</h2>
+    <p class="hint">Sign in with your approved administrator account to manage campus access codes.</p>
+    <form id="adminLoginForm" class="access-form">
+      <label for="adminEmail">Administrator email</label>
+      <input id="adminEmail" name="email" type="email" autocomplete="username" required placeholder="Enter your admin email">
+      <label for="adminPassword">Password</label>
+      <input id="adminPassword" name="password" type="password" autocomplete="current-password" required placeholder="Enter your password">
+      <button id="adminLoginButton" type="submit"><span>Sign in securely</span><span aria-hidden="true">→</span></button>
+    </form>
+    <p id="adminLoginMessage" class="access-error" role="status" aria-live="polite"></p>
+    <button id="backToAccess" class="secondary-button admin-back-button" type="button">← Back to access code</button>
+
+    <div id="adminDashboard" hidden>
+      <div class="admin-dashboard-heading">
+        <div><div class="section-kicker">CODE MANAGEMENT</div><h3>Access codes</h3><p class="hint">Codes are stored as hashes. The full code is shown only once when created.</p></div>
+        <button id="adminSignOut" class="secondary-button" type="button">Sign out</button>
+      </div>
+      <form id="adminCreateForm" class="admin-create-form">
+        <div class="admin-field">
+          <label for="adminRole">Code type</label>
+          <select id="adminRole" required>
+            <option value="visitor">Visitor</option>
+            <option value="student">Student</option>
+            <option value="faculty">Faculty</option>
+          </select>
+        </div>
+        <div class="admin-field">
+          <label for="adminExpiryHours">Expires in (hours)</label>
+          <input id="adminExpiryHours" type="number" min="0.25" max="8760" step="0.25" value="24" required>
+        </div>
+        <div class="admin-field">
+          <label for="adminMaxUses">Maximum uses</label>
+          <input id="adminMaxUses" type="number" min="1" max="5000" step="1" value="1" required>
+        </div>
+        <button id="adminCreateButton" type="submit">+ Generate code</button>
+      </form>
+      <p id="adminActionMessage" class="admin-message" role="status" aria-live="polite"></p>
+      <div id="createdCodePanel" class="admin-created-code" hidden>
+        <div><strong>New access code</strong><p>Copy and share this code securely now. It will not be shown again after you leave this page.</p></div>
+        <code id="createdCodeValue"></code>
+        <button id="copyCreatedCode" class="secondary-button" type="button">Copy code</button>
+      </div>
+      <div class="admin-table-heading">
+        <h3>Recent codes</h3>
+        <button id="refreshAdminCodes" class="secondary-button" type="button">Refresh list ↻</button>
+      </div>
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead><tr><th>Type</th><th>Status</th><th>Expires</th><th>Uses</th><th>Created</th><th>Actions</th></tr></thead>
+          <tbody id="adminCodeRows"><tr><td colspan="6">Sign in to load access codes.</td></tr></tbody>
+        </table>
+      </div>
+      <p class="access-security-note">Security reminder: give each code only to the intended person. Visitor codes should normally have one use and a short expiry.</p>
+    </div>
   </section>
   <section id="passwordResetGate" class="card auth-card" aria-labelledby="passwordResetTitle" hidden>
     <div class="section-kicker">ACCOUNT SECURITY</div>
