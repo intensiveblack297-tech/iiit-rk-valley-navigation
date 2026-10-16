@@ -30,6 +30,19 @@
     <p id="accessError" class="access-error" role="status" aria-live="polite"></p>
     <p class="access-security-note"><strong>Note:</strong> use a code issued for you. Codes may expire or be limited to one use.</p>
   </section>
+  <section id="passwordResetGate" class="card auth-card" aria-labelledby="passwordResetTitle" hidden>
+    <div class="section-kicker">ACCOUNT SECURITY</div>
+    <h2 id="passwordResetTitle">Set a new password</h2>
+    <p class="hint">Choose a strong password for your NAVIGO administrator account.</p>
+    <form id="passwordResetForm" class="access-form">
+      <label for="newPassword">New password</label>
+      <input id="newPassword" name="newPassword" type="password" autocomplete="new-password" minlength="8" required placeholder="At least 8 characters">
+      <label for="confirmNewPassword">Confirm new password</label>
+      <input id="confirmNewPassword" name="confirmNewPassword" type="password" autocomplete="new-password" minlength="8" required placeholder="Enter the same password again">
+      <button id="saveNewPassword" type="submit"><span>Save new password</span><span aria-hidden="true">→</span></button>
+    </form>
+    <p id="passwordResetMessage" class="access-error" role="status" aria-live="polite"></p>
+  </section>
   <div id="appContent" hidden>
   <section id="accessMode" class="card access-card">
     <div class="section-kicker">VERIFIED ACCESS</div>
