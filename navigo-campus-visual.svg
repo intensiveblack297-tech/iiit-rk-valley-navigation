@@ -1,1 +1,88 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 520" role="img" aria-labelledby="t d"><title id="t">NAVIGO campus navigation illustration</title><desc id="d">Stylized campus building, walkway, navigation sign and phone route in the NAVIGO teal and green palette.</desc><defs><linearGradient id="sky" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#edf5f7"/><stop offset="1" stop-color="#f8faf5"/></linearGradient><linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b8d5d8"/><stop offset="1" stop-color="#7aaeb0"/></linearGradient></defs><rect width="720" height="520" rx="34" fill="url(#sky)"/><path d="M0 420C145 350 260 372 365 420s214 72 355-8v108H0Z" fill="#0b4650"/><path d="M0 438c150-54 244-22 350 21s229 41 370-28v24c-136 69-247 80-380 31S155 408 0 464Z" fill="#78b94f" opacity=".9"/><path d="M0 454c145-52 251-18 358 26s226 39 362-30v30c-140 64-252 72-373 27S145 437 0 483Z" fill="#063640" opacity=".92"/><g transform="translate(70 82)"><path d="M0 90 86 42l166 32 84-42 76 29v183H0Z" fill="#e9e5da"/><path d="M0 90 86 42l166 32 84-42 76 29v27L250 70 86 82 0 118Z" fill="#d5d0c3"/><path d="M25 113h120v126H25zM165 104h126v135H165zM307 91h74v148h-74z" fill="#f6f3eb"/><g fill="url(#glass)"><path d="M40 133h30v25H40zM82 133h30v25H82zM40 173h30v25H40zM82 173h30v25H82zM181 124h28v25h-28zM221 124h28v25h-28zM181 164h28v25h-28zM221 164h28v25h-28zM322 110h24v24h-24zM322 148h24v24h-24zM322 186h24v24h-24z"/></g><path d="M0 239h381" stroke="#c0b9aa" stroke-width="5"/></g><g opacity=".95"><circle cx="45" cy="336" r="34" fill="#78b94f"/><circle cx="90" cy="348" r="28" fill="#5e983b"/><rect x="43" y="350" width="8" height="58" rx="4" fill="#705a43"/><circle cx="610" cy="342" r="35" fill="#78b94f"/><circle cx="650" cy="355" r="27" fill="#5e983b"/><rect x="616" y="357" width="8" height="53" rx="4" fill="#705a43"/></g><path d="M245 520c34-66 91-98 139-117 43-18 80-37 111-76" fill="none" stroke="#fff" stroke-width="30" stroke-linecap="round"/><path d="M245 520c34-66 91-98 139-117 43-18 80-37 111-76" fill="none" stroke="#cbd6d0" stroke-width="2" stroke-linecap="round"/><g transform="translate(68 255)"><rect x="0" y="0" width="155" height="105" rx="10" fill="#0b4650"/><rect x="10" y="10" width="135" height="76" rx="6" fill="#f7fbf6"/><g fill="#0b0b0b"><path d="M18 18h20v20H18zM22 22h12v12H22zM117 18h20v20h-20zM121 22h12v12h-12zM18 57h20v20H18zM22 61h12v12H22zM48 18h6v6h-6zM60 18h8v8h-8zM50 32h6v12h-6zM68 30h7v7h-7zM82 20h5v14h-5zM93 40h8v8h-8zM48 58h8v8h-8zM61 53h6v15h-6zM74 58h9v6h-9zM88 56h6v11h-6zM101 59h8v8h-8zM116 50h7v9h-7zM126 65h7v10h-7z"/></g><text x="77" y="98" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#fff">SCAN • NAVIGATE • ARRIVE</text></g><g transform="translate(465 250) rotate(7)"><rect width="150" height="245" rx="25" fill="#102e34"/><rect x="8" y="8" width="134" height="229" rx="20" fill="#f8faf6"/><rect x="18" y="38" width="114" height="164" rx="10" fill="#e6f0e8"/><path d="M26 180C53 151 66 133 77 112s20-31 43-49" fill="none" stroke="#1685d4" stroke-width="6" stroke-linecap="round"/><circle cx="28" cy="180" r="8" fill="#159a68"/><circle cx="119" cy="63" r="8" fill="#e45b61"/><path d="M25 63h42" stroke="#c5d4cf" stroke-width="5" stroke-linecap="round"/><text x="75" y="24" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" font-weight="700" fill="#0b4650">C-204 • NAVIGO</text><text x="75" y="219" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" fill="#66777b">Indoor route preview</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1672 941" role="img" aria-labelledby="title desc">
+<title id="title">NAVIGO campus navigation</title>
+<desc id="desc">A bright campus illustration with academic buildings, trees, a QR sign, and a phone showing an indoor navigation route.</desc>
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e3f4f6"/><stop offset=".54" stop-color="#f8faf4"/><stop offset="1" stop-color="#d7ece3"/></linearGradient>
+  <linearGradient id="building" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fffef8"/><stop offset="1" stop-color="#e6e2d7"/></linearGradient>
+  <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#78c6ce"/><stop offset="1" stop-color="#3997a4"/></linearGradient>
+  <linearGradient id="phone" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f8fffc"/><stop offset="1" stop-color="#e8f1ea"/></linearGradient>
+  <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#b7dc74"/><stop offset="1" stop-color="#68ad46"/></linearGradient>
+  <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#103e43" flood-opacity=".18"/></filter>
+  <pattern id="mapGrid" width="90" height="82" patternUnits="userSpaceOnUse"><path d="M0 40H90M42 0V82" stroke="#d4e3cf" stroke-width="12" fill="none"/><circle cx="17" cy="18" r="8" fill="#b8d99a"/><circle cx="73" cy="64" r="7" fill="#a9d18a"/></pattern>
+</defs>
+<rect width="1672" height="941" rx="34" fill="url(#sky)"/>
+<g opacity=".6" fill="#fff"><path d="M90 135c12-43 79-53 109-10 30-24 76-9 83 24 46-2 66 19 66 44H64c0-29 4-44 26-58Z"/><path d="M1284 142c15-40 67-45 92-13 27-30 80-22 91 16 34-1 54 17 54 35h-273c0-21 12-34 36-38Z"/></g>
+<!-- campus lawn and path -->
+<path d="M0 565c210-58 388-4 574 27 233 39 384-4 570-20 180-16 354-7 528 44v325H0Z" fill="url(#ground)"/>
+<path d="M0 695c207-83 362-51 562-4 188 44 355 35 521 6 211-37 397-13 589 43v201H0Z" fill="#75b84d"/>
+<path d="M708 941c74-111 106-195 205-268 81-60 163-96 279-125l49 45c-126 36-206 80-275 139-89 76-118 146-149 209Z" fill="#fffef8"/>
+<path d="M750 941c63-105 103-187 197-259 76-58 163-95 273-123" fill="none" stroke="#d8dfd4" stroke-width="5"/>
+<!-- far greenery -->
+<g fill="#4a9e42"><circle cx="20" cy="540" r="66"/><circle cx="79" cy="505" r="80"/><circle cx="135" cy="551" r="66"/><circle cx="1584" cy="535" r="76"/><circle cx="1635" cy="500" r="66"/><circle cx="1680" cy="550" r="65"/></g>
+<g fill="#7ebf48"><circle cx="40" cy="500" r="62"/><circle cx="94" cy="534" r="61"/><circle cx="1604" cy="491" r="62"/><circle cx="1657" cy="544" r="65"/></g>
+<g stroke="#806449" stroke-width="14" stroke-linecap="round"><path d="M87 573v111M1606 571v105"/></g>
+<!-- main academic block -->
+<g filter="url(#shadow)">
+  <path d="M321 306 493 252 635 284 766 214 940 267 1035 240 1138 286v259H321Z" fill="#d3cbb9"/>
+  <path d="M321 330 493 282 635 307 766 252 940 299 1035 274 1138 311v250H321Z" fill="url(#building)"/>
+  <path d="M493 282 635 307 766 252 940 299 1035 274 1035 299 940 324 766 280 635 333 493 309 321 363v-33Z" fill="#e4dfd1"/>
+  <path d="M366 367h240v188H366zM640 348h296v207H640zM970 322h130v233H970z" fill="#f8f6ed"/>
+  <path d="M393 394h71v53h-71zM489 394h71v53h-71zM393 467h71v53h-71zM489 467h71v53h-71z" fill="url(#glass)"/>
+  <path d="M674 380h65v52h-65zM764 380h65v52h-65zM674 448h65v52h-65zM764 448h65v52h-65zM674 516h65v39h-65zM764 516h65v39h-65z" fill="url(#glass)"/>
+  <path d="M993 352h37v41h-37zM993 412h37v41h-37zM993 472h37v41h-37z" fill="url(#glass)"/>
+  <path d="M321 555h817" stroke="#bfb8a8" stroke-width="9"/>
+  <text x="780" y="330" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="24" letter-spacing="4" fill="#2c6668">IIIT RK VALLEY</text>
+</g>
+<!-- smaller trees and shrubbery -->
+<g><g transform="translate(590 492)"><rect x="-5" y="25" width="10" height="61" rx="4" fill="#81684b"/><circle cx="0" cy="0" r="32" fill="#4b9f43"/><circle cx="-21" cy="8" r="21" fill="#79bf49"/><circle cx="19" cy="12" r="22" fill="#5eab3e"/></g><g transform="translate(1000 478)"><rect x="-5" y="30" width="10" height="64" rx="4" fill="#81684b"/><circle cx="0" cy="0" r="36" fill="#4b9f43"/><circle cx="-23" cy="9" r="22" fill="#79bf49"/><circle cx="20" cy="14" r="24" fill="#5eab3e"/></g><path d="M250 610c80-40 162-35 230-3 42-27 91-25 130 2 61-22 124-8 161 19H225Z" fill="#4b9e42"/><path d="M1020 618c68-44 144-41 210 0 52-23 120-14 166 14H995Z" fill="#4b9e42"/></g>
+<!-- QR wayfinding sign -->
+<g transform="translate(205 387)" filter="url(#shadow)">
+  <rect x="0" y="0" width="278" height="256" rx="24" fill="#06434b"/>
+  <rect x="18" y="17" width="242" height="194" rx="14" fill="#fffdf6"/>
+  <g transform="translate(40 37)" fill="#071c20">
+    <rect width="62" height="62"/><rect x="11" y="11" width="40" height="40" fill="#fffdf6"/><rect x="20" y="20" width="22" height="22"/>
+    <rect x="135" width="62" height="62"/><rect x="146" y="11" width="40" height="40" fill="#fffdf6"/><rect x="155" y="20" width="22" height="22"/>
+    <rect y="99" width="62" height="62"/><rect x="11" y="110" width="40" height="40" fill="#fffdf6"/><rect x="20" y="119" width="22" height="22"/>
+    <path d="M75 7h15v15H75zM96 27h12v12H96zM75 44h10v10H75zM116 9h13v13h-13zM82 67h14v14H82zM104 58h20v20h-20zM132 78h12v12h-12zM72 93h13v13H72zM91 108h14v14H91zM116 97h13v13h-13zM141 111h13v13h-13zM76 132h12v12H76zM101 141h16v16h-16zM132 138h12v12h-12zM155 94h13v13h-13zM179 72h12v12h-12zM175 126h17v17h-17z"/>
+  </g>
+  <text x="139" y="239" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#fff">SCAN • NAVIGATE • ARRIVE</text>
+  <path d="M57 256v47M220 256v47" stroke="#06434b" stroke-width="11" stroke-linecap="round"/>
+</g>
+<!-- phone route card -->
+<g transform="rotate(7 1324 570)" filter="url(#shadow)">
+  <rect x="1193" y="292" width="316" height="526" rx="52" fill="#092f35"/>
+  <rect x="1211" y="310" width="280" height="490" rx="38" fill="url(#phone)"/>
+  <rect x="1303" y="322" width="96" height="9" rx="5" fill="#b6c9c4"/>
+  <text x="1350" y="361" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#0b4650">C-204 • NAVIGO</text>
+  <rect x="1231" y="382" width="240" height="332" rx="22" fill="#edf6e7"/>
+  <rect x="1231" y="382" width="240" height="332" rx="22" fill="url(#mapGrid)"/>
+  <path d="M1245 429h76v-18h64v39h-35v63h44v-22h51M1262 600h51v-49h-28v-27h62v64h42v51h48" stroke="#fffef9" stroke-width="20" fill="none" stroke-linejoin="round" opacity=".98"/>
+  <path d="M1261 663c28-47 52-65 76-87s34-57 51-77 38-45 55-68" stroke="#198ce0" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="1261" cy="663" r="17" fill="#16a878"/><circle cx="1443" cy="431" r="18" fill="#ef5b65"/>
+  <path d="M1443 447c-4 15-14 25-18 34-4-9-16-20-18-34-3-12 5-27 18-28s21 16 18 28Z" fill="#ef5b65"/>
+  <text x="1350" y="755" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#527b7a">Indoor route preview</text>
+</g>
+<!-- signature hills -->
+<path d="M0 683c180-95 358-86 535-21 134 49 258 119 380 100 140-21 194-98 344-102 148-4 278 48 413 10v271H0Z" fill="#07525b"/>
+<path d="M0 718c192-94 353-49 539 16 132 46 264 103 390 81 155-27 216-108 359-110 147-1 260 50 384 21v64c-128 27-254-24-382-14-137 11-204 100-369 122-137 18-268-40-409-87C329 763 168 735 0 805Z" fill="#0a6b69"/>
+<path d="M0 853c204-82 376-47 550 12 135 46 276 84 398 43 124-41 185-107 327-120 151-14 277 18 397 2v151H0Z" fill="#063b43"/>
+<path d="M0 908c199-66 360-31 545 26 157 49 258 54 395 2 126-48 193-95 326-105 152-11 275 20 406 0v110H0Z" fill="#4d9f3b"/>
+<!-- logo and tagline -->
+<g transform="translate(82 65)">
+  <path d="M48 0C15 0 0 26 0 53c0 40 48 76 48 76s48-36 48-76C96 26 81 0 48 0Z" fill="#16854d"/>
+  <path d="M48 14c-23 0-34 17-34 37 0 23 23 45 34 54 11-9 34-31 34-54 0-20-11-37-34-37Z" fill="#f7fff8"/>
+  <path d="M48 27 26 67 48 57 70 67Z" fill="#0b6b4b"/><path d="M48 42 40 63 48 59 56 63Z" fill="#4d9f3b"/>
+  <text x="121" y="68" font-family="Arial,sans-serif" font-size="75" font-weight="900" letter-spacing="5" fill="#06434b">NAVIGO</text>
+  <text x="125" y="105" font-family="Arial,sans-serif" font-size="23" font-weight="700" letter-spacing="4" fill="#16816b">YOUR CAMPUS • YOUR WAY</text>
+</g>
+<!-- bottom caption -->
+<g transform="translate(68 707)">
+  <rect width="700" height="145" rx="30" fill="#063b43" opacity=".94"/>
+  <g transform="translate(26 31)" fill="none" stroke="#b6e17c" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20 50V9l22-9 22 9v41L42 60Z"/><path d="m20 9 22 9 22-9M42 18v42"/><path d="M53 4a13 13 0 1 1 26 0c0 10-13 23-13 23S53 14 53 4Z" transform="translate(-1 -4)"/>
+  </g>
+  <text x="129" y="57" font-family="Arial,sans-serif" font-size="17" letter-spacing="3" fill="#b4cfcd">CAMPUS GUIDE</text>
+  <text x="129" y="104" font-family="Arial,sans-serif" font-size="34" font-weight="800" fill="#fff">Indoor + outdoor navigation</text>
+</g>
+<g transform="translate(1088 865)" fill="#c8e2a2"><path d="M17 0C7 0 0 8 0 18c0 12 17 31 17 31s17-19 17-31C34 8 27 0 17 0Zm0 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14Z"/><text x="49" y="31" font-family="Arial,sans-serif" font-size="22" fill="#d8e7dc">Idupulapaya • Kadapa • Andhra Pradesh</text></g>
+</svg>
