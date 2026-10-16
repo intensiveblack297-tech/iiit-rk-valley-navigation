@@ -271,3 +271,106 @@ main{margin-top:28px}
   .hero-steps-showcase div{gap:5px}
   .hero-steps-showcase span{font-size:11px}
 }
+
+
+/* Refined NAVIGO hero: balanced desktop split, restrained illustration, clear mobile flow. */
+.hero-refined{
+  background:
+    radial-gradient(circle at 92% 4%,rgba(120,185,79,.13),transparent 23rem),
+    linear-gradient(135deg,#fbfcfa 0%,#f4f8f3 58%,#edf5eb 100%);
+  border-bottom:1px solid #dce8df;
+}
+.hero-refined:after{width:340px;height:340px;right:-210px;top:-230px;background:rgba(120,185,79,.08)}
+.hero-inner-refined{width:min(1160px,92%);padding:26px 0 42px}
+.brand-refined{width:max-content;max-width:100%;grid-template-columns:50px auto;column-gap:14px;align-items:center;margin:0 0 26px}
+.brand-refined .brand-mark{width:50px;height:70px}
+.brand-refined .brand-name{font-size:clamp(42px,4.2vw,53px);line-height:.92;letter-spacing:-2.1px}
+.brand-refined .brand-tagline{font-size:10px;letter-spacing:1.8px;margin-top:7px}
+.hero-layout-refined{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);
+  align-items:center;gap:clamp(26px,4vw,50px);
+}
+.hero-copy-refined{max-width:560px;padding:6px 0 2px}
+.hero-copy-refined .hero-pill{
+  background:#fff;border-color:#d5e3d9;color:#326347;
+  font-size:10px;letter-spacing:1.1px;padding:8px 12px;
+}
+.hero-copy-refined h1{
+  margin:19px 0 16px;font-size:clamp(42px,5vw,62px);
+  line-height:1.01;letter-spacing:-2px;font-weight:850;color:#083d45;
+}
+.hero-copy-refined h1 em{color:#589642;font-style:normal}
+.hero-copy-refined p{max-width:480px;margin:0;color:#53696a;font-size:16px;line-height:1.8}
+.hero-actions-refined{display:flex;align-items:center;flex-wrap:wrap;gap:18px;margin-top:26px}
+.hero-actions-refined .hero-cta{width:auto;justify-content:center;padding:14px 18px;border-radius:12px;background:#073f48;box-shadow:0 12px 26px rgba(7,63,72,.16)}
+.hero-actions-refined .hero-cta span{font-size:19px;line-height:1}
+.hero-actions-refined .hero-link{margin:0;font-size:12px;border:0;text-decoration:underline;text-underline-offset:4px;color:#305d4b}
+.hero-steps-refined{display:flex;align-items:center;gap:14px;margin-top:30px}
+.hero-steps-refined div{display:flex;align-items:center;gap:7px}
+.hero-steps-refined b{font-size:10px;color:#629847;letter-spacing:.7px}
+.hero-steps-refined span{font-size:12px;font-weight:800;color:#426064}
+.hero-step-line{width:23px;height:1px;background:#bfd2c5;flex:none}
+.hero-location{display:flex;align-items:center;gap:11px;margin-top:30px;padding-top:18px;border-top:1px solid #d9e5db}
+.hero-location-icon{display:grid;place-items:center;width:38px;height:38px;flex:none;border-radius:12px;background:#e2efda;color:#276342;font-size:23px}
+.hero-location>span:last-child{display:flex;flex-direction:column;gap:2px}
+.hero-location strong{font-size:12px;font-weight:850;color:#244d41}
+.hero-location small{font-size:11px;color:#70817b;line-height:1.45}
+.hero-visual-refined{
+  position:relative;min-width:0;width:100%;aspect-ratio:760/650;overflow:hidden;
+  border:1px solid rgba(11,70,80,.1);border-radius:28px;
+  background:#e9f4ed;box-shadow:0 22px 52px rgba(15,65,59,.13);
+}
+.hero-visual-refined img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+.hero-art-caption{
+  position:absolute;left:16px;bottom:16px;display:flex;align-items:center;gap:9px;
+  padding:10px 13px;border:1px solid rgba(255,255,255,.7);border-radius:999px;
+  background:rgba(255,255,255,.92);color:#275b49;
+  font-size:9px;font-weight:900;letter-spacing:1px;box-shadow:0 5px 18px rgba(12,55,48,.08);
+}
+.hero-art-dot{width:7px;height:7px;flex:none;border-radius:50%;background:#70b64a;box-shadow:0 0 0 4px #e8f4e0}
+.hero-showcase{background:initial}
+@media(max-width:940px){
+  .hero-inner-refined{width:min(900px,92%);padding:23px 0 34px}
+  .hero-layout-refined{grid-template-columns:minmax(0,1fr) minmax(0,.95fr);gap:26px}
+  .hero-copy-refined h1{font-size:clamp(38px,5.1vw,49px);letter-spacing:-1.6px}
+  .hero-copy-refined p{font-size:15px;line-height:1.7}
+  .hero-actions-refined{gap:12px}
+  .hero-actions-refined .hero-cta{padding:13px 15px}
+  .hero-steps-refined{gap:8px}
+  .hero-step-line{width:14px}
+}
+@media(max-width:760px){
+  .hero-inner-refined{width:min(620px,92%);padding:22px 0 30px}
+  .brand-refined{margin-bottom:24px;grid-template-columns:45px auto;column-gap:12px}
+  .brand-refined .brand-mark{width:45px;height:64px}
+  .brand-refined .brand-name{font-size:43px}
+  .brand-refined .brand-tagline{font-size:9px;letter-spacing:1.5px}
+  .hero-layout-refined{grid-template-columns:1fr;gap:24px}
+  .hero-copy-refined{max-width:100%}
+  .hero-copy-refined h1{font-size:clamp(39px,8vw,52px);margin:15px 0 12px}
+  .hero-copy-refined p{max-width:580px;font-size:15px}
+  .hero-visual-refined{width:100%;aspect-ratio:760/610;border-radius:22px}
+  .hero-steps-refined{margin-top:22px}
+  .hero-location{margin-top:23px;padding-top:15px}
+}
+@media(max-width:480px){
+  .hero-inner-refined{width:92%;padding:18px 0 25px}
+  .brand-refined{grid-template-columns:40px auto;column-gap:10px;margin-bottom:21px}
+  .brand-refined .brand-mark{width:40px;height:57px}
+  .brand-refined .brand-name{font-size:37px;letter-spacing:-1.5px}
+  .brand-refined .brand-tagline{font-size:8px;letter-spacing:1.15px;margin-top:6px}
+  .hero-copy-refined .hero-pill{font-size:8px;letter-spacing:.8px;padding:7px 9px}
+  .hero-copy-refined h1{font-size:39px;letter-spacing:-1.4px}
+  .hero-copy-refined p{font-size:14px;line-height:1.7}
+  .hero-actions-refined{align-items:stretch;flex-direction:column;gap:13px;margin-top:21px}
+  .hero-actions-refined .hero-cta{width:100%}
+  .hero-actions-refined .hero-link{align-self:flex-start;margin-left:2px}
+  .hero-steps-refined{justify-content:space-between;gap:6px;margin-top:22px}
+  .hero-steps-refined div{gap:5px}
+  .hero-steps-refined span{font-size:11px}
+  .hero-step-line{width:10px}
+  .hero-location{gap:9px}
+  .hero-location small{font-size:10px}
+  .hero-visual-refined{aspect-ratio:760/650;border-radius:18px}
+  .hero-art-caption{left:10px;bottom:10px;font-size:8px;padding:8px 10px}
+}
