@@ -82,6 +82,268 @@ const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_7h-xvm6LtlK7loS-z_egxw_XCQiQfsX
   });
 })();
 
+
+// Secure NAVIGO administrator panel. User tokens stay in memory and are never written to localStorage.
+(function setupAdminPanel() {
+  const accessPanel = document.getElementById('accessGate');
+  const adminPanel = document.getElementById('adminGate');
+  const showAdminButton = document.getElementById('showAdminAccess');
+  const backButton = document.getElementById('backToAccess');
+  const loginForm = document.getElementById('adminLoginForm');
+  const loginButton = document.getElementById('adminLoginButton');
+  const loginMessage = document.getElementById('adminLoginMessage');
+  const dashboard = document.getElementById('adminDashboard');
+  const signOutButton = document.getElementById('adminSignOut');
+  const createForm = document.getElementById('adminCreateForm');
+  const createButton = document.getElementById('adminCreateButton');
+  const actionMessage = document.getElementById('adminActionMessage');
+  const codeRows = document.getElementById('adminCodeRows');
+  const createdCodePanel = document.getElementById('createdCodePanel');
+  const createdCodeValue = document.getElementById('createdCodeValue');
+  const copyCreatedCode = document.getElementById('copyCreatedCode');
+  const refreshButton = document.getElementById('refreshAdminCodes');
+
+  if (!accessPanel || !adminPanel || !loginForm || !dashboard) return;
+
+  let adminAccessToken = null;
+
+  showAdminButton?.addEventListener('click', () => {
+    accessPanel.hidden = true;
+    adminPanel.hidden = false;
+    loginMessage.textContent = '';
+    document.getElementById('adminEmail')?.focus();
+  });
+
+  backButton?.addEventListener('click', () => {
+    adminPanel.hidden = true;
+    accessPanel.hidden = false;
+    loginMessage.textContent = '';
+  });
+
+  async function adminRequest(payload) {
+    if (!adminAccessToken) throw new Error('Please sign in first.');
+    const response = await fetch(SUPABASE_URL + '/functions/v1/navigo-admin', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': SUPABASE_PUBLISHABLE_KEY,
+        'Authorization': 'Bearer ' + adminAccessToken
+      },
+      body: JSON.stringify(payload)
+    });
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok) {
+      if (response.status === 401) {
+        adminAccessToken = null;
+        dashboard.hidden = true;
+        loginForm.hidden = false;
+      }
+      throw new Error(result.error || result.message || 'Administrator request failed. Please try again.');
+    }
+    return result;
+  }
+
+  function formatDate(value) {
+    const date = new Date(value);
+    return Number.isNaN(date.getTime()) ? '—' : date.toLocaleString();
+  }
+
+  function codeStatus(code) {
+    if (code.revoked_at) return ['Revoked', 'status-revoked'];
+    if (Date.parse(code.expires_at) <= Date.now()) return ['Expired', 'status-expired'];
+    if (Number(code.uses_count) >= Number(code.max_uses)) return ['Used up', 'status-used'];
+    return ['Active', 'status-active'];
+  }
+
+  function appendCell(row, value) {
+    const cell = document.createElement('td');
+    cell.textContent = value;
+    row.appendChild(cell);
+    return cell;
+  }
+
+  function renderCodes(codes) {
+    codeRows.replaceChildren();
+    if (!Array.isArray(codes) || codes.length === 0) {
+      const row = document.createElement('tr');
+      const cell = appendCell(row, 'No access codes yet. Generate one above.');
+      cell.colSpan = 6;
+      codeRows.appendChild(row);
+      return;
+    }
+
+    codes.forEach((code) => {
+      const row = document.createElement('tr');
+      appendCell(row, String(code.role || 'unknown').toUpperCase());
+      const statusCell = document.createElement('td');
+      const status = codeStatus(code);
+      const badge = document.createElement('span');
+      badge.className = 'admin-status ' + status[1];
+      badge.textContent = status[0];
+      statusCell.appendChild(badge);
+      row.appendChild(statusCell);
+      appendCell(row, formatDate(code.expires_at));
+      appendCell(row, String(code.uses_count) + ' / ' + String(code.max_uses));
+      appendCell(row, formatDate(code.created_at));
+
+      const actionsCell = document.createElement('td');
+      const actions = document.createElement('div');
+      actions.className = 'admin-row-actions';
+      if (!code.revoked_at) {
+        if (Date.parse(code.expires_at) > Date.now() &&
+            Number(code.uses_count) < Number(code.max_uses)) {
+          const expireButton = document.createElement('button');
+          expireButton.type = 'button';
+          expireButton.className = 'admin-small-button';
+          expireButton.textContent = 'Expire now';
+          expireButton.addEventListener('click', () => updateCode(code, 'expire'));
+          actions.appendChild(expireButton);
+        }
+        const revokeButton = document.createElement('button');
+        revokeButton.type = 'button';
+        revokeButton.className = 'admin-small-button danger';
+        revokeButton.textContent = 'Revoke';
+        revokeButton.addEventListener('click', () => updateCode(code, 'revoke'));
+        actions.appendChild(revokeButton);
+      } else {
+        actions.textContent = '—';
+      }
+      actionsCell.appendChild(actions);
+      row.appendChild(actionsCell);
+      codeRows.appendChild(row);
+    });
+  }
+
+  async function loadCodes() {
+    codeRows.innerHTML = '<tr><td colspan="6">Loading access codes…</td></tr>';
+    try {
+      const result = await adminRequest({ action: 'list' });
+      renderCodes(result.codes);
+      return true;
+    } catch (error) {
+      codeRows.replaceChildren();
+      const row = document.createElement('tr');
+      const cell = appendCell(row, error.message);
+      cell.colSpan = 6;
+      codeRows.appendChild(row);
+      actionMessage.textContent = error.message;
+      return false;
+    }
+  }
+
+  async function updateCode(code, action) {
+    const label = action === 'revoke' ? 'revoke this access code' : 'expire this access code now';
+    if (!window.confirm('Are you sure you want to ' + label + '?')) return;
+    actionMessage.textContent = '';
+    try {
+      const result = await adminRequest({ action, id: code.id });
+      actionMessage.textContent = result.message || 'Access code updated.';
+      await loadCodes();
+    } catch (error) {
+      actionMessage.textContent = error.message;
+    }
+  }
+
+  loginForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    loginMessage.textContent = '';
+    loginButton.disabled = true;
+    loginButton.innerHTML = '<span>Signing in…</span>';
+    try {
+      const response = await fetch(SUPABASE_URL + '/auth/v1/token?grant_type=password', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_PUBLISHABLE_KEY
+        },
+        body: JSON.stringify({
+          email: document.getElementById('adminEmail').value.trim(),
+          password: document.getElementById('adminPassword').value
+        })
+      });
+      const authResult = await response.json().catch(() => ({}));
+      if (!response.ok || !authResult.access_token) {
+        throw new Error(authResult.msg || authResult.message || authResult.error_description ||
+          'Sign-in failed. Check your email and password, then try again.');
+      }
+
+      adminAccessToken = authResult.access_token;
+      const firstList = await adminRequest({ action: 'list' });
+      loginForm.hidden = true;
+      dashboard.hidden = false;
+      renderCodes(firstList.codes);
+      loginMessage.textContent = '';
+      actionMessage.textContent = 'Signed in successfully. You can now manage access codes.';
+      document.getElementById('adminPassword').value = '';
+    } catch (error) {
+      adminAccessToken = null;
+      loginMessage.textContent = error.message;
+    } finally {
+      loginButton.disabled = false;
+      loginButton.innerHTML = '<span>Sign in securely</span><span aria-hidden="true">→</span>';
+    }
+  });
+
+  createForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    actionMessage.textContent = '';
+    createButton.disabled = true;
+    createButton.textContent = 'Generating…';
+    try {
+      const expiresInHours = Number(document.getElementById('adminExpiryHours').value);
+      const maxUses = Number(document.getElementById('adminMaxUses').value);
+      const role = document.getElementById('adminRole').value;
+      if (!Number.isFinite(expiresInHours) || expiresInHours < 0.25 || expiresInHours > 8760) {
+        throw new Error('Expiry must be between 0.25 and 8760 hours.');
+      }
+      if (!Number.isInteger(maxUses) || maxUses < 1 || maxUses > 5000) {
+        throw new Error('Maximum uses must be a whole number from 1 to 5000.');
+      }
+
+      const result = await adminRequest({ action: 'create', role, expiresInHours, maxUses });
+      createdCodeValue.textContent = result.code;
+      createdCodePanel.hidden = false;
+      actionMessage.textContent = 'Access code created. Copy it now; the full code is only shown once.';
+      await loadCodes();
+      createdCodePanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    } catch (error) {
+      actionMessage.textContent = error.message;
+    } finally {
+      createButton.disabled = false;
+      createButton.textContent = '+ Generate code';
+    }
+  });
+
+  copyCreatedCode?.addEventListener('click', async () => {
+    const code = createdCodeValue.textContent;
+    if (!code) return;
+    try {
+      await navigator.clipboard.writeText(code);
+      actionMessage.textContent = 'Code copied. Share it only with the intended recipient.';
+    } catch (error) {
+      actionMessage.textContent = 'Clipboard access was blocked. Select the code text and copy it manually.';
+    }
+  });
+
+  refreshButton?.addEventListener('click', () => {
+    actionMessage.textContent = '';
+    loadCodes();
+  });
+
+  signOutButton?.addEventListener('click', () => {
+    adminAccessToken = null;
+    dashboard.hidden = true;
+    loginForm.hidden = false;
+    loginMessage.textContent = '';
+    actionMessage.textContent = '';
+    document.getElementById('adminEmail').value = '';
+    document.getElementById('adminPassword').value = '';
+    createdCodeValue.textContent = '';
+    createdCodePanel.hidden = true;
+    codeRows.innerHTML = '<tr><td colspan="6">Sign in to load access codes.</td></tr>';
+  });
+})();
+
 // Prototype campus model. Outdoor navigation uses Google Maps; indoor navigation uses our rough layouts.
 const blocks = [
   {name:'AB-1',icon:'🏢',query:'Academic Block 1, IIIT RGUKT RK Valley',type:'academic',smallDepartments:['Mathematics','Physics','Chemistry','English','Telugu','Management','Library Science','Physical Education']},
