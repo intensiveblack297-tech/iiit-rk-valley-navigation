@@ -300,10 +300,17 @@ const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_7h-xvm6LtlK7loS-z_egxw_XCQiQfsX
         throw new Error('Maximum uses must be a whole number from 1 to 5000.');
       }
 
-      const result = await adminRequest({ action: 'create', role, expiresInHours, maxUses });
-      createdCodeValue.textContent = result.code;
-      createdCodePanel.hidden = false;
-      actionMessage.textContent = 'Access code created. Copy it now; the full code is only shown once.';
+      const result = await adminRequest({ action: 'create', role, expiresInHours, maxUses, codeLength: 6 });
+      const generatedCode = typeof result.code === 'string' ? result.code : '';
+      createdCodeValue.textContent = generatedCode;
+      createdCodePanel.hidden = !generatedCode;
+      if (generatedCode.length === 6) {
+        actionMessage.textContent = 'Six-character access code created. Copy it now; the full code is only shown once.';
+      } else if (generatedCode) {
+        actionMessage.textContent = 'The page requested a 6-character code, but the Supabase navigo-admin function returned ' + generatedCode.length + ' characters. The server-side generator must also be updated to create 6-character codes.';
+      } else {
+        throw new Error('The admin function did not return an access code. Please try again.');
+      }
       await loadCodes();
       createdCodePanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     } catch (error) {
